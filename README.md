@@ -4,9 +4,11 @@ SD5913 Assignment 3 · Individual interactive experience
 
 ## Status / 当前状态
 
-Planning scaffold, created 16 October 2026. The title and concept are provisional. There is no playable implementation yet.
+Playable first prototype, 20 October 2026. All 12 conversation routes reach four endings. Author review and the required real-person trial remain pending.
 
-项目规划阶段，建立于 2026 年 10 月 16 日。名称和概念暂定，目前尚无可玩版本。
+2026 年 10 月 20 日：首个可玩原型，12 条对话路线通向四个结尾。仍待作者审阅与必需的真人试用。
+
+![Unsaid desktop interface](screenshot.png)
 
 ## Starting idea / 初步构想
 
@@ -23,17 +25,35 @@ A short narrative experience for people interested in how we listen and respond 
 
 ## Running / 运行
 
-No runnable app is included in this initial commit. Exact serving instructions will be added with the first browser prototype. The proposed implementation uses HTML, CSS and JavaScript with local assets; no AI service is currently planned as a runtime dependency.
+Install Python 3 if needed. From a fresh terminal, enter the repository folder and run:
 
-本次提交仅建立项目框架。首个浏览器原型完成时补充准确运行命令。计划使用 HTML、CSS、JavaScript 和本地素材，当前不计划依赖在线 AI 服务运行。
+```powershell
+git clone https://github.com/IceyHikari/unsaid.git
+cd unsaid
+py -m http.server 8033 --bind 127.0.0.1
+```
+
+Open http://127.0.0.1:8033 in a browser. On macOS/Linux use `python3` instead of `py`. Stop the server with Ctrl+C. If port 8033 is occupied, use 8034 and open that port instead. No packages, build, account or API key are needed for the experience. Choose a reply with a mouse or Tab then Enter. Use 中文 / English to switch language without losing your place; Go back undoes one reply; Start again resets the conversation.
+
+在仓库目录运行上述命令，浏览器打开对应地址。无需安装第三方依赖。点击回应推进对话，支持键盘 Tab / Enter、中英文切换、回退和重启。Ctrl+C 停止服务器。
+
+## Implementation and limitations / 实现与局限
+
+`story.js` defines bilingual dialogue states and explicit choice targets. In `app.js`, `choose()` records the previous state, selects the target state and calls `render()` to show the character response and next choices. A 350 ms guard prevents rapid double activation from skipping a turn. Back restores the recorded state; reset clears the path. Only the most recent reply is shown during play; the ending includes a full choice recap.
+
+The intended user is someone interested in short reflective fiction about listening. The fictional scene concerns bereavement and artistic privacy. It is not counselling or an assessment of empathy. Choices are authored branches, not generated dialogue; paths deliberately converge. Refreshing closes the current playthrough and returns to the beginning. There is no save system, audio or remote service. The illustration is CSS, and the empty frame is a visual metaphor rather than a reproduction of Alex's painting. AI-assisted dialogue remains subject to the author's editorial review.
+
+作品面向喜欢短篇反思性叙事的玩家，涉及丧亲记忆与艺术表达的边界。对白为预写分支，部分路线会汇合；刷新后从头开始，没有存档或音频。它不评估玩家的同理心。左侧空画框是视觉隐喻。AI 协助编写的对白仍待作者审阅。
+
+Development checks: `node verify.cjs` checks every route. Optional browser QA uses `npm install --no-save --package-lock=false playwright`, installed Microsoft Edge, the server above and `node browser-check.cjs`. Node and Playwright are development tools only.
 
 ## Submission plan / 提交计划
 
 Due 1 November 2026, 23:59 Hong Kong time, according to the Canvas brief supplied by the author. Submit this public repository URL through Canvas when ready.
 
 - [ ] Confirm intended user, scene and interaction.
-- [ ] Implement and verify the main interaction and recovery behavior.
-- [ ] Add a screenshot and exact run instructions.
+- [x] Implement and verify the main interaction and recovery behavior.
+- [x] Add a screenshot and exact run instructions.
 - [ ] Observe at least one other person trying it before explaining the controls.
 - [ ] Record the observation and resulting decision in PROCESS.md.
 - [ ] Complete credits, limitations and fresh-terminal verification.

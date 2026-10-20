@@ -2,6 +2,8 @@
 
 SD5913 Assignment 3 · Individual interactive experience
 
+[Play Unsaid / 在线试玩](https://iceyhikari.github.io/unsaid/)
+
 ## Status / 当前状态
 
 Playable first prototype, 20 October 2026. All 12 conversation routes reach four endings. Author review and the required real-person trial remain pending.

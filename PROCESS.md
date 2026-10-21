@@ -41,3 +41,23 @@ Kept: explicit dialogue states, immediate character feedback and reversible choi
 保留明确对话状态、即时反馈与可回退选择，便于解释输入如何改变响应。采用不排名的结尾，而不以“同理心分数”评判玩家；把作品带回家也是成立的选择。以上是助手的实现决定，仍待作者审阅，不是真人试用发现。
 
 Verification: Node graph traversal checked all 12 routes, bilingual fields and four endings. Headless Microsoft Edge checked choice response, back, rapid double-click protection, ending recap, language switching, reset and 390 px mobile overflow; no page errors occurred. Desktop and mobile screenshots were captured. These are developer checks, not the required human trial. USER-TRIAL.md provides the observation protocol. The official course automatic checker was not run.
+
+## 21 October 2026 — From dialogue choices to arranging a room / 从选择台词到整理房间
+
+The author tried/reviewed the direction and said the interaction felt too simple: it consisted mainly of clicking prewritten responses. They also rejected the explicit “no score, no perfect reply” copy as unnatural. This is direct author feedback, not an independent participant trial.
+
+作者认为第一版主要在点击预设台词，交互太简单；并明确要求删掉“没有评分，也没有完美回应”等生硬文案。这是作者反馈，不是课程要求的独立参与者试用。
+
+Changed: replace the dialogue choice list with a studio scene. A movable lamp reveals a curtain detail, three inspectable objects carry story information on front and back, painting placement changes the room, and the exhibition statement can be displayed or set aside. Closing text reflects the final arrangement. Remove the old story graph and its graph-only checker from the current tree; retain the original version in Git history. No dialogue scoring copy appears in the scene.
+
+调整：用工作室场景替代对话选项。移动灯光发现窗帘细节，查看和翻转物件，安排画作位置，决定展签是否公开。收尾取决于最终布置。旧对话与图结构检查从当前文件中移除，早期版本仍保留在历史里。
+
+Kept: bilingual presentation, reversible actions and local execution. Changed the assistant's earlier idea of adding more dialogue branches: additional choices would not address the author's concern about passivity. A single shared state now connects each input to visible arrangement and character feedback. Buttons and a native range input provide alternatives to precision dragging.
+
+保留中英文、本地运行和可撤回操作。不继续堆叠对话分支，而是让输入改变房间本身。为拖动提供按钮和滑块替代，避免精确拖动成为操作门槛。
+
+Code and SVG/CSS scene artwork were produced with Codex. The fictional bereavement scene is an assistant-authored draft, not an autobiographical account. The author authorized the spatial interaction direction; review of exact wording remains open. No external image generator or online model is required at runtime.
+
+Verification: headless Edge exercised actual mouse dragging, native slider input, undo, object inspection/flipping, label removal/replacement, all four closing scenes, invalid drop return, keyboard placement, language preservation and reset cancellation/confirmation. A 390 px layout and touch-enabled browser context were also checked. No JavaScript page errors were observed. Desktop/mobile screenshots were visually inspected. This is developer verification, not a claim that a person used the design without guidance. No official course checker was run.
+
+Remaining: ask another person to use the revised studio before explaining controls; record their real attempts, hesitation and feedback using USER-TRIAL.md, then document the resulting change or retention decision. Do not claim that the author's critique or browser automation fulfils this requirement.

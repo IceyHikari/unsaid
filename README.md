@@ -1,33 +1,35 @@
 # Unsaid / 未说出口
 
-SD5913 Assignment 3 · Individual interactive experience
+SD5913 Assignment 3 · Individual interactive experience · Minyi Jin
 
-[Play Unsaid / 在线试玩](https://iceyhikari.github.io/unsaid/)
+[Play in your browser / 在线试玩](https://iceyhikari.github.io/unsaid/)
 
-## Status / 当前状态
+![Interactive studio with a movable painting and lamp](screenshot.png)
 
-Playable first prototype, 20 October 2026. All 12 conversation routes reach four endings. Author review and the required real-person trial remain pending.
+## The idea / 作品构想
 
-2026 年 10 月 20 日：首个可玩原型，12 条对话路线通向四个结尾。仍待作者审阅与必需的真人试用。
+The night before an exhibition, Alex asks you to help arrange a studio. A painting of their mother's room, an old photograph, a study sheet and a personal exhibition statement are still waiting to be placed. This short fictional experience is for people who enjoy exploring illustrated spaces and noticing the stories carried by objects. Arranging the exhibition becomes a way to consider how much of a private memory to share.
 
-![Unsaid desktop interface](screenshot.png)
+展览前夜，阿岚请你帮忙整理工作室。关于母亲房间的画、旧照片、草稿和一段私人自述，都还没有安排好。作品面向喜欢探索画面与物件故事的玩家：通过亲手布展，体会私人记忆与公开表达之间的取舍。
 
-## Starting idea / 初步构想
+The first version used branching dialogue. Following the author's feedback that selecting lines felt too passive, the current version moves interaction into the illustrated room. The earlier prototype is preserved in Git history (commit `8f5634f`).
 
-A short narrative experience for people interested in how we listen and respond to others. The player chooses a reply in one fictional conversation; the character's response and the next available choices change. The intention is to explore emotional expression through a small, understandable interaction. This is a proposed direction awaiting the author's review, not a final design.
+第一版是分支对话。作者认为点击台词过于被动，因此当前版本改为画面中的物件操作。早期版本保留在 Git 历史中。
 
-面向关注人与人沟通的玩家，以一段虚构对话探索倾听与回应。玩家选择一句回应，角色的反馈和后续选项随之变化。通过一个清楚的小交互表达情感。此方向待作者审阅，尚未定稿。
+## What you can do / 操作
 
-## Planned interaction / 计划交互
+- Move the hanging lamp, or use the light-position slider. With the painting on the wall, light near its curtain reveals a detail and changes Alex's response.
+- Pick up the photograph, study sheet and exhibition label. Turn each over to read the reverse.
+- Drag the painting to the wall, holding rack or packing area. The visible placement, selected control and character response change together. Position buttons below the scene offer the same action; clicking the painting cycles through positions.
+- Take the statement off the wall or put it back. Its location in the room changes.
+- After inspecting two objects, choose to leave the room ready. The closing scene reflects the painting's location and whether the statement remains displayed. Return to the room to revise it.
+- Undo restores the previous action. Start over asks for confirmation. English/Chinese switching preserves the arrangement.
 
-- Input: choose a response. / 输入：选择回应。
-- Response: update the conversation state and character dialogue. / 响应：更新对话状态与角色台词。
-- Feedback: show the chosen reply, the character's reaction and available next actions. / 反馈：呈现已选回应、角色反应和下一步操作。
-- Recovery: support restarting; handle repeated activation without skipping dialogue. / 恢复：支持重新开始，避免重复点击跳过对话。
+拖灯或使用滑块照亮画中细节；拿起三件物品并翻面；将画放到墙面、暂存架或包装区；决定展签是否公开。查看至少两件物品后，可以结束布展，看到与当前布置对应的收尾。可以回到房间继续调整，也可撤回或确认重启。语言切换保留状态。
 
-## Running / 运行
+## Run locally / 本地运行
 
-Install Python 3 if needed. From a fresh terminal, enter the repository folder and run:
+Install Python 3. In a fresh terminal:
 
 ```powershell
 git clone https://github.com/IceyHikari/unsaid.git
@@ -35,32 +37,45 @@ cd unsaid
 py -m http.server 8033 --bind 127.0.0.1
 ```
 
-Open http://127.0.0.1:8033 in a browser. On macOS/Linux use `python3` instead of `py`. Stop the server with Ctrl+C. If port 8033 is occupied, use 8034 and open that port instead. No packages, build, account or API key are needed for the experience. Choose a reply with a mouse or Tab then Enter. Use 中文 / English to switch language without losing your place; Go back undoes one reply; Start again resets the conversation.
+Open **http://127.0.0.1:8033** in a current Edge, Chrome, Firefox or Safari browser. On macOS/Linux, replace `py` with `python3`. Stop with Ctrl+C. If the port is occupied, use `8034` in both command and URL. No third-party runtime packages, build, API, key, account or network service are needed after cloning. The application is plain HTML, CSS, SVG and JavaScript. The live version needs an internet connection to load.
 
-在仓库目录运行上述命令，浏览器打开对应地址。无需安装第三方依赖。点击回应推进对话，支持键盘 Tab / Enter、中英文切换、回退和重启。Ctrl+C 停止服务器。
+运行上述命令后打开对应地址。无需第三方依赖、构建或在线 AI 服务。Ctrl+C 停止服务器。如果端口被占用，同时修改命令与网址中的端口号。
 
-## Implementation and limitations / 实现与局限
+Keyboard: use Tab to focus controls and Enter/Space to activate them. Use arrow keys on the native light slider. Position buttons provide a drag-free alternative. Escape closes an open dialog. “How to play” explains the controls in the selected language. Touch users can use the scene objects, slider and position buttons.
 
-`story.js` defines bilingual dialogue states and explicit choice targets. In `app.js`, `choose()` records the previous state, selects the target state and calls `render()` to show the character response and next choices. A 350 ms guard prevents rapid double activation from skipping a turn. Back restores the recorded state; reset clears the path. Only the most recent reply is shown during play; the ending includes a full choice recap.
+## Implementation / 实现
 
-The intended user is someone interested in short reflective fiction about listening. The fictional scene concerns bereavement and artistic privacy. It is not counselling or an assessment of empathy. Choices are authored branches, not generated dialogue; paths deliberately converge. Refreshing closes the current playthrough and returns to the beginning. There is no save system, audio or remote service. The illustration is CSS, and the empty frame is a visual metaphor rather than a reproduction of Alex's painting. AI-assisted dialogue remains subject to the author's editorial review.
+`state` in `app.js` holds light position, painting location, label visibility, inspected objects and whether the curtain detail has been discovered. Pointer events update the light or painting; `setPlace()` changes placement; `render()` applies state to SVG highlights, object positions, notes and character feedback. The same state changes are available through ordinary buttons and a native slider. Undo uses state snapshots.
 
-作品面向喜欢短篇反思性叙事的玩家，涉及丧亲记忆与艺术表达的边界。对白为预写分支，部分路线会汇合；刷新后从头开始，没有存档或音频。它不评估玩家的同理心。左侧空画框是视觉隐喻。AI 协助编写的对白仍待作者审阅。
+A relevant mistake is an invalid painting drop: the picture returns to its previous location and a status message explains where to place it. A cancelled pointer movement also restores state. Repeated selection of the current position leaves it unchanged. Reset requires confirmation. The ending dialog can be closed to continue arranging.
 
-Development checks: `node verify.cjs` checks every route. Optional browser QA uses `npm install --no-save --package-lock=false playwright`, installed Microsoft Edge, the server above and `node browser-check.cjs`. Node and Playwright are development tools only.
+## Limitations / 局限
 
-## Submission plan / 提交计划
+This is stylised fiction involving bereavement, not a counselling tool. The physical light reveals an authored visual layer rather than simulating optics. The artwork and room are geometric SVG illustrations. Painting movement snaps to three destinations; other objects are inspected in place. Refreshing restarts the session; there is no persistent save, audio or network AI. The author still needs to review the new fictional scene and conduct the required real-person trial. Automated browser checks are not that trial.
 
-Due 1 November 2026, 23:59 Hong Kong time, according to the Canvas brief supplied by the author. Submit this public repository URL through Canvas when ready.
+这是涉及丧亲记忆的风格化虚构作品。光照通过预设图层表达，画作吸附到三个固定位置，不是物理模拟。刷新会重启，没有存档、声音或在线生成。新版仍待作者审阅与真人试用，浏览器验证不能代替真人试用。
 
-- [ ] Confirm intended user, scene and interaction.
-- [x] Implement and verify the main interaction and recovery behavior.
-- [x] Add a screenshot and exact run instructions.
-- [ ] Observe at least one other person trying it before explaining the controls.
-- [ ] Record the observation and resulting decision in PROCESS.md.
-- [ ] Complete credits, limitations and fresh-terminal verification.
-- [ ] Verify signed-out repository access and submit the URL on Canvas.
+## Development verification / 开发验证
 
-以上为待完成事项，不表示已完成试用或提交。
+Run instructions and the interaction were checked locally in Edge. To reproduce optional developer browser checks, install Node.js and Microsoft Edge, keep the server above running, then:
 
-See [PROCESS.md](PROCESS.md) for development decisions and [CREDITS.md](CREDITS.md) for attribution.
+```powershell
+npm install --no-save --package-lock=false playwright
+node browser-check.cjs
+```
+
+Playwright is used only for development. Checks cover lamp dragging and slider input, discovery and undo, inspecting and flipping, label placement, all four closing scenes, painting drag, invalid drop recovery, keyboard alternatives, language switching, reset confirmation and a touch-enabled mobile viewport. Desktop and mobile screenshots are included. A physical phone trial remains to be done.
+
+## Submission status / 提交状态
+
+Due **1 November 2026, 23:59 Hong Kong time**, according to the supplied Canvas brief. Submit the public repository URL **https://github.com/IceyHikari/unsaid**, not just the live website.
+
+- [x] Working browser prototype, screenshot and run instructions.
+- [x] Scene interactions and mistake recovery checked in a browser.
+- [x] Development decisions, AI assistance and credits documented.
+- [ ] Author review of the revised scene and interaction.
+- [ ] Real-person trial, observation and a resulting decision recorded.
+- [ ] Final fresh-terminal run and signed-out repository check.
+- [ ] Final repository URL submitted on Canvas by the author.
+
+See [PROCESS.md](PROCESS.md), [USER-TRIAL.md](USER-TRIAL.md) and [CREDITS.md](CREDITS.md).

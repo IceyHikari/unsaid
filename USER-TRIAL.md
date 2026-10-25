@@ -2,11 +2,13 @@
 
 ## Reported feedback / 已转述的反馈
 
-Source: on 25 October 2026 the author explicitly stated that the comments below came from two different classmates and were relayed by the author. The developer did not directly observe these sessions. Entries are paraphrases, not verbatim quotations. Actual trial dates, devices and whether participants received an explanation before starting were not supplied. 25 October is the report date, not a reconstructed trial date. No signatures or identifying information are included.
+Source: on 25 October 2026 the author stated that the comments below came from two different classmates and were relayed by the author. The author subsequently supplied the trial timing: P1 tried the first playable version on the day it was provided (20 October, consistent with commit `8f5634f`); P2 tried the spatial version on Thursday 22 October. The developer did not directly observe these sessions. Entries are paraphrases, not verbatim quotations. Devices and whether participants received an explanation before starting were not supplied. 25 October is the date these reports were documented. No signatures or identifying information are included.
 
-来源：2026 年 10 月 25 日，作者明确说明以下意见分别来自两位不同同学，由作者转述。助手未直接观察试用；记录为转述，不作逐字引用。实际试用日期、设备和开始前是否讲解玩法未提供。10 月 25 日是反馈报告日期，不是推定试用日期。
+来源：2026 年 10 月 25 日，作者说明以下意见分别来自两位不同同学，并补充试用时间：P1 在首个可玩版本提供当天（10 月 20 日，与提交 `8f5634f` 一致）尝试；P2 在 10 月 22 日星期四尝试场景版。助手未直接观察试用，记录为转述而非逐字引用。设备和开始前是否讲解玩法尚未提供。10 月 25 日为反馈整理日期。
 
 ### P1 — Branching dialogue prototype
+
+- Trial date: 20 October 2026, as reported by the author (same day as the first playable version).
 
 - Reported response: the experience felt too simple and passive, resembling a branching visual novel where the player mainly follows a story.
 - Decision: replace the dialogue choice list with direct manipulation of a studio scene: lamp movement, object inspection and painting placement.
@@ -15,6 +17,8 @@ Source: on 25 October 2026 the author explicitly stated that the comments below 
 P1 认为初版像分支视觉小说，主要跟着剧情走，交互单调。由此改为灯光、物件和布展的直接操作；10 月 21 日版本已实现。
 
 ### P2 — Spatial studio prototype
+
+- Trial date: Thursday 22 October 2026, as reported by the author.
 
 - Positive feedback: liked the light design, photograph/study texture and bilingual presentation.
 - Problem: moving the painting to the rack or packing area removed the light interaction, which was disappointing.

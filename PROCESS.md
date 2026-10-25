@@ -66,9 +66,9 @@ Remaining: ask another person to use the revised studio before explaining contro
 
 ## 25 October 2026 — Peer feedback reported by the author / 作者转述同学反馈
 
-The author clarified that the earlier dialogue critique and the later studio critique came from two different classmates and were relayed in conversation. They are recorded separately as P1 and P2 in USER-TRIAL.md. This supersedes our earlier attribution of those comments solely to author review. The developer did not directly observe either session. Actual session dates, devices, exact quotations and whether controls were explained beforehand were not supplied; no details are invented. The report date below is not a claimed session date.
+The author clarified that the earlier dialogue critique and the later studio critique came from two different classmates and were relayed in conversation. They are recorded separately as P1 and P2 in USER-TRIAL.md. This supersedes our earlier attribution of those comments solely to author review. The author then specified that P1 tried the first playable version on the day it was provided, 20 October 2026 (consistent with commit `8f5634f`), and P2 tried the spatial version on Thursday 22 October 2026. The developer did not directly observe either session. Devices, exact quotations and whether controls were explained beforehand were not supplied. 25 October is the date these reports were documented, distinct from the trial dates.
 
-作者澄清，早期的对话版意见与后来的场景版意见分别来自两位同学，由作者口头转述。因此在 USER-TRIAL.md 中分别记录为 P1 与 P2，修正此前仅归为作者评审的来源判断。开发助手没有直接观察试用；实际日期、设备、逐字原话，以及是否在试用前解释玩法，均未提供，不作补写。
+作者澄清，早期对话版和后来的场景版意见分别来自两位同学，由作者转述，并补充 P1 在首个可玩版本提供当天（2026 年 10 月 20 日）尝试，P2 在 2026 年 10 月 22 日星期四尝试。因此在 USER-TRIAL.md 中分别记录，修正此前仅归为作者评审的来源判断。开发助手没有直接观察试用；设备、逐字原话及试用前是否解释玩法尚未提供。10 月 25 日是反馈整理日期，与试用日期分开记录。
 
 P1 found the original experience too passive and similar to a branching visual novel. Decision: retain the move from selecting dialogue to manipulating the studio, documented in the 21 October implementation.
 

@@ -6,10 +6,12 @@ const names={wall:['Wall','墙面'],rack:['Holding rack','暂存架'],pack:['Pac
 const text={welcome:["Could you help me get this room ready? I'm still not sure how much I want to share tomorrow.","陪我整理一下吧。我还没想好，明天到底想让别人看见多少。"],light:["There. That strip by the curtain. She always left it open a little. That's the part I kept repainting.","就是那里，窗帘旁边的那条光。她总会留一道缝。那是我一直重画的部分。"],wall:["From here you can see the whole room. Could we leave a little space around it?","放在这里，能看见整个房间。周围留一点空白吧。"],rack:["Let's leave it here while I think. It feels easier when it doesn't have to be a final decision.","先放在这里，让我想想。不用马上决定的话，好像就没那么难了。"],pack:["Maybe I'll take it home tonight. Could you leave the wrapping open until we're done?","也许今晚我想把它带回家。先别封好包装，等我们整理完。"],labelOff:["Thank you. I can show the painting without giving everyone the whole story.","谢谢。把画留下，也不一定要把所有事情都讲出来。"],labelOn:["That is a lot to put beside a painting. Let me look at it once more before morning.","放在一幅画旁边，这些话好像有点多。天亮前，再让我看一次吧。"]};
 function snapshot(){return {state:structuredClone(state),voice};}
 function save(){history.push(snapshot());if(history.length>60)history.shift();}
-function aligned(){return state.place==='wall'&&Math.abs(state.light-48)<=8;}
+// A shared light model follows the painting rather than requiring wall placement.
+function lightTarget(){return {wall:48,rack:78,pack:88}[state.place];}
+function aligned(){return Math.abs(state.light-lightTarget())<=7;}
 function detectLight(){if(aligned()&&!state.revealed){state.revealed=true;voice='light';status=T('The curtain catches the light.','窗帘旁的细节显现了。');}}
 function setPlace(place){if(state.place===place){status=T('The painting is already here.','画已经放在这里了。');render();return;}save();state.place=place;voice=place;status=T('Painting moved. You can undo this.','画的位置已改变，可以撤回。');detectLight();render();}
-function render(){
+function renderBase(){
  document.documentElement.lang=lang?'zh-CN':'en';$('language').textContent=T('中文','English');$('help').textContent=T('How to play','怎么玩');$('studio').setAttribute('aria-label',T('Interactive studio','互动工作室'));
  $('chapter').textContent=T('THE NIGHT BEFORE / 23:47','展览前夜 / 23:47');$('title').textContent=T('Leave a little light for tomorrow.','替明天，留一点光。');$('intro').textContent=T('“Stay and help me get this ready?” Alex hands you the painting, then glances at the old photograph on the table.','“开门之前，陪我把这里收拾一下吧。” 阿岚把画交给你，又看了一眼桌上的旧照片。');
  $('voice-label').textContent=T('ALEX / THE STUDIO','阿岚 / 工作室');$('voice').textContent=text[voice][lang];$('notes-title').textContent=T('Details to take into tomorrow','今晚留下的细节');$('notes').replaceChildren();
@@ -19,7 +21,9 @@ function render(){
  document.querySelectorAll('[data-object]').forEach(b=>{b.querySelector('.tag').textContent=names[b.dataset.object][lang];b.setAttribute('aria-label',T('Inspect ','查看')+names[b.dataset.object][lang]);b.classList.toggle('seen',state.seen.includes(b.dataset.object));});document.querySelector('.label').classList.toggle('removed',!state.label);
  const positions={wall:[38,18,20],rack:[72,58,12],pack:[83,81,11]};const [x,y,w]=positions[state.place];if(!drag||drag.kind!=='painting')Object.assign($('painting').style,{left:x+'%',top:y+'%',width:w+'%'});
  $('painting').setAttribute('aria-label',T('Painting: drag to an area, or click to cycle positions.','画作：拖动至标记区域，或点击切换位置。'));$('lamp').style.left=state.light+'%';$('beam').style.left=state.light+'%';$('lamp').querySelector('span').textContent=T('Move light','移动灯光');$('lamp').setAttribute('aria-label',T('Move light; also available using the slider below.','移动灯光，也可使用下方滑块。'));$('hidden-light').style.opacity=aligned()?'1':'0';
- $('stage-caption').textContent=state.place!=='wall'?T('Return the painting to the wall to explore it in the light.','想再看看画里的光，可以先把画放回墙上。'):state.revealed?T('Pick up the objects. Then decide where the painting belongs.','拿起物件看看，再决定画要放在哪里。'):T('Move the lamp across the painting. What does it reveal?','让灯光经过画面，看看它会照出什么。');$('footer-note').textContent=T('THE NIGHT BEFORE · AN INTERACTIVE STUDIO','展览前夜 · 一间可以慢慢整理的工作室');
+ $('painting').classList.toggle('illuminated',aligned());
+ $('beam').style.height=({wall:85,rack:120,pack:150}[state.place])+'%';
+ $('stage-caption').textContent=aligned()?T('The light found the painting. What will you let visitors see?','灯光落在画上。你想让明天的观众看见什么？'):T('Move the lamp towards the painting, wherever you have placed it.','把灯移到画的上方，放在哪里都能照亮。');$('footer-note').textContent=T('THE NIGHT BEFORE · AN INTERACTIVE STUDIO','展览前夜 · 一间可以慢慢整理的工作室');
  $('help-title').textContent=T('A room before morning','天亮之前');$('help-copy').textContent=T('Move the lamp left or right, or use its slider. When the painting is on the wall, light near its curtain reveals a detail.\n\nPick up the photograph, study sheet and label. Turn them over. The label can stay on the wall or be taken down.\n\nDrag the painting to a marked area, or use the three position buttons below the room. Clicking the painting also cycles positions. Buttons work with Tab and Enter; use arrow keys on the light slider.\n\nWhen ready, leave the room. Undo and Start over let you try again. Nothing is uploaded or saved when you refresh.','左右拖动灯光，或使用下方滑块。画挂在墙上时，靠近窗帘的灯光会显露细节。\n\n拿起照片、草稿和展签，可以翻面。展签可以留下，也可以取下来。\n\n把画拖到标记区域，也可以使用下方三个位置按钮。点击画作会依次切换位置。按钮可用 Tab 和 Enter 操作，滑块可用方向键。\n\n整理好后，点击“准备开门”。随时可以撤回或重新开始。刷新会从头开始，操作不会上传。');$('help-ok').textContent=T('Back to the studio','回到工作室');$('reset-title').textContent=T('Begin the evening again?','重新回到今晚？');$('reset-copy').textContent=T('The light, painting and label will return to their starting positions.','灯光、画作和展签会恢复初始位置。');$('cancel-reset').textContent=T('Keep arranging','继续整理');$('confirm-reset').textContent=T('Start over','重新开始');$('continue').textContent=T('Return to the room','再看看这个房间');$('ending-eyebrow').textContent=T('BEFORE MORNING / 05:12','天快亮了 / 05:12');
  if(currentObject)renderObject();if($('ending').open)renderEnding();
 }
@@ -62,4 +66,33 @@ function moveDrag(e){if(!drag||e.pointerId!==drag.id)return;if(Math.hypot(e.clie
 function endDrag(e,cancel=false){if(!drag||e.pointerId!==drag.id)return;const d=drag;drag=null;$('studio').classList.remove('dragging-room');$('painting').classList.remove('dragging');if(cancel){state=d.before.state;voice=d.before.voice;status=T('Movement cancelled; the previous position was restored.','移动已取消，恢复原来的位置。');render();return;}if(d.kind==='lamp'){if(d.moved)history.push(d.before);render();return;}if(!d.moved){const places=['wall','rack','pack'];setPlace(places[(places.indexOf(state.place)+1)%3]);return;}const x=(e.clientX-d.rect.left)/d.rect.width*100,y=(e.clientY-d.rect.top)/d.rect.height*100;const target=x>=32&&x<=64&&y>=12&&y<=60?'wall':x>=69&&x<=86&&y>=53&&y<=80?'rack':x>=79&&x<=100&&y>=79&&y<=100?'pack':null;if(target){history.push(d.before);state.place=target;voice=target;status=T('Painting placed.','画已放好。');detectLight();}else status=T('Place it inside a marked area. The painting returned safely.','请放到标记区域内，画已回到原处。');render();}
 for(const [id,kind] of [['painting','painting'],['lamp','lamp']]){const b=$(id);b.addEventListener('pointerdown',e=>beginDrag(e,kind));b.addEventListener('pointermove',moveDrag);b.addEventListener('pointerup',e=>endDrag(e));b.addEventListener('pointercancel',e=>endDrag(e,true));}
 $('painting').addEventListener('click',e=>{if(e.detail===0){const places=['wall','rack','pack'];setPlace(places[(places.indexOf(state.place)+1)%3]);}});
+// Additional scene feedback and the final visitor view use the same live arrangement.
+function render(){
+ renderBase();
+ $('help-copy').textContent=T('Move the lamp over the painting on the wall, rack or packing table. A warm highlight appears when it catches the light.\n\nPick up the photograph and studies; turn them over to find their notes. Open the exhibition label to choose whether visitors will read the private statement.\n\nDrag the painting into a marked area, or use the position buttons. Use Tab and Enter for buttons, arrow keys for the light slider.\n\nAfter inspecting two objects, open the doors to see the exhibition you arranged. The final scene can be revisited or restarted.','把灯移到画的上方：墙面、暂存架和包装区都能照亮，光落到画上时会出现暖色细节。\n\n拿起照片和草稿，翻面查看批注。打开展签，决定观众是否会读到私人自述。\n\n拖动画作到标记区域，或使用位置按钮。按钮支持 Tab / Enter，灯光滑块支持方向键。\n\n查看两件物品后，开门看看你布置的展览。结局后可以返回修改，也可以从头再玩。');
+ $('finish').textContent=T('Open the doors →','开门，看看明天 →');
+ document.querySelector('.mini-label').textContent=T('ROOM\n2026','房间\n2026');
+ document.querySelector('.label').setAttribute('title',state.label?T('Visitors will read Alex’s personal statement.','观众会读到阿岚的私人自述。'):T('The statement is set aside; visitors will see the artwork alone.','私人自述已收起，观众只看作品。'));
+ if(currentObject==='label')$('object-copy').textContent+=(state.label?T('\n\nDISPLAYED: visitors can read this personal history beside the painting.','\n\n当前：公开。观众会在画旁读到这段私人经历。'):T('\n\nSET ASIDE: visitors will see the painting without the personal statement.','\n\n当前：收起。观众只会看见画，不会读到这段私人经历。'));
+ $('continue').textContent=T('Revise this exhibition','回到夜里，重新布置');
+ $('play-again').textContent=T('Begin a new evening','开始新的一晚');
+};
+const oldEnding=renderEnding;
+renderEnding=function(){
+ oldEnding();
+ const endingKey=state.place==='wall'?(state.label?'shared':'quiet'):state.place;
+ $('ending').dataset.ending=endingKey;
+ $('ending-eyebrow').textContent=T('EPILOGUE / THE NEXT MORNING','尾声 / 第二天清晨');
+ const visitor={shared:T('The first visitor reads the statement, then steps back to look at the room. Alex stands beside you. “I can tell this part today.”','第一位观众读完展签，退后一步看那间房间。阿岚站在你身边：“今天，我可以讲这一部分。”'),quiet:T('A visitor stops at the painting. Without a statement to read, they spend a little longer looking at the curtain. Alex lets the silence stay.','观众在画前停下。没有自述可读，目光在窗帘上多停留了一会儿。阿岚没有急着解释。'),rack:T('The doors open onto a space still being arranged. Alex sits beside the rack with a pencil. “Not everything has to be ready at the same time.”','门开了，房间仍在整理。阿岚拿着铅笔坐在暂存架旁：“也许，不用所有事情都一起准备好。”'),pack:T('By morning the painting is wrapped, ready to travel. Alex lifts it gently. An empty place remains on the wall, waiting for another day.','天亮时，画已经包好，准备带走。阿岚轻轻抱起它。墙上的位置暂时空着，留给另一天。')};
+ $('visitor-response').textContent=visitor[endingKey];
+ const scene=$('final-scene');scene.replaceChildren();
+ const room=document.querySelector('.room').cloneNode(true);
+ room.querySelectorAll('[id]').forEach(el=>{const old=el.id;el.id='final-'+old;room.querySelectorAll('[fill]').forEach(shape=>{if(shape.getAttribute('fill')===`url(#${old})`)shape.setAttribute('fill',`url(#final-${old})`);});});scene.append(room);
+ const painting=$('painting').cloneNode(true);painting.removeAttribute('id');painting.className='final-painting';painting.disabled=true;painting.querySelectorAll('[id]').forEach(e=>e.removeAttribute('id'));scene.append(painting);
+ if(state.place==='pack'){const wrap=document.createElement('div');wrap.className='final-wrap';scene.append(wrap);}
+ if(state.place==='wall'&&state.label){const label=document.createElement('div');label.className='final-label';label.textContent=T('ROOM / 2026\nA personal history','房间 / 2026\n一段私人记忆');scene.append(label);}
+ const dawn=document.createElement('div');dawn.className='dawn';scene.append(dawn);
+ const caption=document.createElement('p');caption.className='final-caption';caption.textContent={shared:T('The story is shared.','故事被讲给了别人。'),quiet:T('The work speaks first.','先让作品开口。'),rack:T('There is still time.','还有一些时间。'),pack:T('A memory goes home.','一段记忆，被带回家。')}[endingKey];scene.append(caption);
+};
+$('play-again').onclick=()=>{$('ending').close();state=initial();history=[];voice='welcome';status='';render();};
 render();

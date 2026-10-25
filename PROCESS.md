@@ -26,9 +26,11 @@ The assistant proposed a narrative game, but the author requested repository set
 
 ## User trial / 真人试用
 
-Not conducted yet. After a runnable prototype exists, ask at least one other person to try it before explaining the controls. Record what they attempt, hesitation, whether feedback is understood, and one resulting improvement or a reason to retain the design. Do not publish identifying details or recordings of the participant.
+At the initial scaffold stage, no trial had been reported. For the later peer feedback reported by the author on 25 October, see the dated entry below and USER-TRIAL.md. Participant identities are not published.
 
 尚未进行。原型可运行后，在解释操作之前请至少一人尝试；记录实际操作、犹豫点、反馈是否易懂，以及据此作出的修改或保留理由。不公开参与者身份信息或录音录像。
+
+（以上为初始阶段状态；10 月 25 日作者转述的两位同学反馈，见文末及 USER-TRIAL.md。）
 
 ## 20 October 2026 — First playable conversation / 首个可玩对话
 
@@ -61,3 +63,17 @@ Code and SVG/CSS scene artwork were produced with Codex. The fictional bereaveme
 Verification: headless Edge exercised actual mouse dragging, native slider input, undo, object inspection/flipping, label removal/replacement, all four closing scenes, invalid drop return, keyboard placement, language preservation and reset cancellation/confirmation. A 390 px layout and touch-enabled browser context were also checked. No JavaScript page errors were observed. Desktop/mobile screenshots were visually inspected. This is developer verification, not a claim that a person used the design without guidance. No official course checker was run.
 
 Remaining: ask another person to use the revised studio before explaining controls; record their real attempts, hesitation and feedback using USER-TRIAL.md, then document the resulting change or retention decision. Do not claim that the author's critique or browser automation fulfils this requirement.
+
+## 25 October 2026 — Peer feedback reported by the author / 作者转述同学反馈
+
+The author clarified that the earlier dialogue critique and the later studio critique came from two different classmates and were relayed in conversation. They are recorded separately as P1 and P2 in USER-TRIAL.md. This supersedes our earlier attribution of those comments solely to author review. The developer did not directly observe either session. Actual session dates, devices, exact quotations and whether controls were explained beforehand were not supplied; no details are invented. The report date below is not a claimed session date.
+
+作者澄清，早期的对话版意见与后来的场景版意见分别来自两位同学，由作者口头转述。因此在 USER-TRIAL.md 中分别记录为 P1 与 P2，修正此前仅归为作者评审的来源判断。开发助手没有直接观察试用；实际日期、设备、逐字原话，以及是否在试用前解释玩法，均未提供，不作补写。
+
+P1 found the original experience too passive and similar to a branching visual novel. Decision: retain the move from selecting dialogue to manipulating the studio, documented in the 21 October implementation.
+
+P2 liked the light interaction and the texture of the photograph/studies, but was disappointed that light stopped affecting the painting on the rack or in the packing area. They did not understand the label's purpose and found its appearance weak. They also found the old ending unclear: the main visible next action was returning to the same room. They wanted more distinct conclusions. These are paraphrases of the author's report, not direct participant quotations.
+
+Implemented response: alignment now follows painting position in all three destinations, with a visible warm highlight. The label has a typeset face and explicit displayed/set-aside consequences. Opening the doors creates an epilogue with a morning scene based on the actual arrangement, four distinct closing outcomes, visitor/character text, and separate revise/restart actions. Preserve the photograph, studies and language switching in response to positive feedback. The inline SVG morning scene is code-authored with Codex; no new external assets or services were introduced.
+
+Developer verification: browser checks exercised illumination on the wall, rack and packing area, object inspection, undo, all four closing outcomes, wrapping visible in the packing ending, invalid-drop recovery, keyboard alternatives, reset confirmation and touch-enabled controls. Screenshots were captured. A peer retest of these new changes has not yet been reported. Before final submission, clarify whether the original trial began without an explanation of the controls, as the brief requests.

@@ -1,6 +1,33 @@
 # User trial guide / 真人试用步骤
 
-This is a blank protocol, not a completed trial. / 这是试用步骤，尚未完成真人试用。
+## Reported feedback / 已转述的反馈
+
+Source: on 25 October 2026 the author explicitly stated that the comments below came from two different classmates and were relayed by the author. The developer did not directly observe these sessions. Entries are paraphrases, not verbatim quotations. Actual trial dates, devices and whether participants received an explanation before starting were not supplied. 25 October is the report date, not a reconstructed trial date. No signatures or identifying information are included.
+
+来源：2026 年 10 月 25 日，作者明确说明以下意见分别来自两位不同同学，由作者转述。助手未直接观察试用；记录为转述，不作逐字引用。实际试用日期、设备和开始前是否讲解玩法未提供。10 月 25 日是反馈报告日期，不是推定试用日期。
+
+### P1 — Branching dialogue prototype
+
+- Reported response: the experience felt too simple and passive, resembling a branching visual novel where the player mainly follows a story.
+- Decision: replace the dialogue choice list with direct manipulation of a studio scene: lamp movement, object inspection and painting placement.
+- Implemented in the 21 October revision. The visible development history preserves the earlier dialogue version.
+
+P1 认为初版像分支视觉小说，主要跟着剧情走，交互单调。由此改为灯光、物件和布展的直接操作；10 月 21 日版本已实现。
+
+### P2 — Spatial studio prototype
+
+- Positive feedback: liked the light design, photograph/study texture and bilingual presentation.
+- Problem: moving the painting to the rack or packing area removed the light interaction, which was disappointing.
+- Problem: the exhibition label's meaning was unclear and its appearance could improve.
+- Problem: opening the doors did not feel like a clear conclusion; the return-to-room action left the purpose of the ending unclear. Requested distinct endings.
+- Decision: preserve the praised materials; allow illumination at all destinations, clarify displayed/private label states, and introduce illustrated morning epilogues with distinct outcomes and explicit revise/restart choices.
+- Implemented in the 25 October revision. Developer browser verification passed. Participant retest of this revision has not been reported.
+
+P2 喜欢灯光、照片与草稿质感和双语。问题是画离开墙面后无法与灯互动，展签意义和外观不清楚，“准备开门”后的收尾不明确。10 月 25 日据此补齐三处光照响应、展签公开状态与图像化的不同结局。尚未收到这次修改后的同学复测。
+
+## Follow-up protocol / 后续试用步骤
+
+For the final record, confirm whether participants initially used the experience before receiving an explanation of its controls. The steps below can also be used for a fresh retest; they do not claim such a retest has happened.
 
 1. Ask one person willing to try a small illustrated studio. Do not explain the controls or intended message beforehand. Let them choose English or Chinese.
 2. Say only: “Please try this experience. Tell me what you are thinking as you use it.”

@@ -19,3 +19,7 @@
 - Codex: HTML/CSS/SVG room and fictional art assets, light/placement/inspection code, bilingual fictional text and browser verification.
 - All visual assets in the current scene are inline SVG/CSS authored for this prototype. No external photos, private materials or media-generation services are included. No third-party runtime code or fonts are loaded.
 - 作者提出画面操作方向并批评初版文案；Codex 协助实现内联 SVG/CSS 场景、交互代码和中英文虚构文本。未引入外部图片或私人素材。
+
+## 25 October 2026 revision
+
+Two classmates' feedback was relayed by the author, as documented with source limitations in USER-TRIAL.md. Codex implemented all-location lighting, clearer label presentation and illustrated epilogues using the existing inline SVG/CSS assets. No participant identities or recordings were published.

@@ -18,11 +18,11 @@ The first version used branching dialogue. Following the author's feedback that 
 
 ## What you can do / 操作
 
-- Move the hanging lamp, or use the light-position slider. With the painting on the wall, light near its curtain reveals a detail and changes Alex's response.
+- Move the hanging lamp, or use the light-position slider. Light reveals the curtain detail on the wall, holding rack and packing area. Move the lamp towards the painting's current position; a warm highlight confirms alignment.
 - Pick up the photograph, study sheet and exhibition label. Turn each over to read the reverse.
 - Drag the painting to the wall, holding rack or packing area. The visible placement, selected control and character response change together. Position buttons below the scene offer the same action; clicking the painting cycles through positions.
 - Take the statement off the wall or put it back. Its location in the room changes.
-- After inspecting two objects, choose to leave the room ready. The closing scene reflects the painting's location and whether the statement remains displayed. Return to the room to revise it.
+- After inspecting two objects, open the doors. An illustrated morning epilogue reflects your actual arrangement: sharing the statement, exhibiting the painting alone, leaving it on the rack, or taking it home. Each has distinct closing text. Revise the exhibition or begin a new evening using separate buttons.
 - Undo restores the previous action. Start over asks for confirmation. English/Chinese switching preserves the arrangement.
 
 拖灯或使用滑块照亮画中细节；拿起三件物品并翻面；将画放到墙面、暂存架或包装区；决定展签是否公开。查看至少两件物品后，可以结束布展，看到与当前布置对应的收尾。可以回到房间继续调整，也可撤回或确认重启。语言切换保留状态。
@@ -51,9 +51,9 @@ A relevant mistake is an invalid painting drop: the picture returns to its previ
 
 ## Limitations / 局限
 
-This is stylised fiction involving bereavement, not a counselling tool. The physical light reveals an authored visual layer rather than simulating optics. The artwork and room are geometric SVG illustrations. Painting movement snaps to three destinations; other objects are inspected in place. Refreshing restarts the session; there is no persistent save, audio or network AI. The author still needs to review the new fictional scene and conduct the required real-person trial. Automated browser checks are not that trial.
+This is stylised fiction involving bereavement, not a counselling tool. Light reveals an authored visual layer rather than simulating optics. The artwork and room are geometric SVG illustrations. Painting movement snaps to three destinations; other objects are inspected in place. Refreshing restarts the session; there is no persistent save, audio or network AI. Feedback from two classmates has been reported by the author and informed revisions; the developer did not directly observe those sessions. Whether controls were explained before those sessions still needs clarification. A participant retest of the latest changes has not been reported.
 
-这是涉及丧亲记忆的风格化虚构作品。光照通过预设图层表达，画作吸附到三个固定位置，不是物理模拟。刷新会重启，没有存档、声音或在线生成。新版仍待作者审阅与真人试用，浏览器验证不能代替真人试用。
+这是涉及丧亲记忆的风格化虚构作品。光照通过预设图层表达，画作吸附到三个固定位置，不是物理模拟。刷新会重启，没有存档、声音或在线生成。两位同学的反馈已由作者转述并用于修改，助手未直接观察试用。试用前是否讲解玩法仍待确认，新版尚未收到参与者复测。
 
 ## Development verification / 开发验证
 
@@ -74,7 +74,8 @@ Due **1 November 2026, 23:59 Hong Kong time**, according to the supplied Canvas 
 - [x] Scene interactions and mistake recovery checked in a browser.
 - [x] Development decisions, AI assistance and credits documented.
 - [ ] Author review of the revised scene and interaction.
-- [ ] Real-person trial, observation and a resulting decision recorded.
+- [x] Two classmates' feedback recorded as reported by the author, with resulting design decisions.
+- [ ] Confirm whether the trial started before explaining controls; report any final participant retest.
 - [ ] Final fresh-terminal run and signed-out repository check.
 - [ ] Final repository URL submitted on Canvas by the author.
 

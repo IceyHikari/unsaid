@@ -87,3 +87,13 @@ For packing, replace the upright painting with a diagonal, flattened placement i
 作者截图显示“开门”被查看数量条件拦住，且包装区画作仍直立。移除查看两件物品的门槛，任何布置都可以进入结局。包装区改为画作斜放、压低透视并覆半透明保护纸；画本身保持不透明。移回墙面或暂存架即可拆开，带回家的结局在同一包装上增加封口胶带。
 
 Verification: browser checks now open an ending from a fresh session, return to editing, exercise all endings, check packed geometry and non-intercepting paper, and drag the packed painting back out. A packing screenshot and revised ending screenshot were captured and inspected. Versioned CSS/JS URLs help existing visitors receive the changed behavior.
+
+### Onboarding revision / 初次进入引导
+
+The author reconsidered the opening condition and requested restoring two inspected objects, explaining that the real problem was discoverability of “How to play”. Restore the condition with explicit progress (0/2, 1/2, ready) beside the action. Repeated inspection of one object counts only once. Opening early gives a concrete message naming the objects and how many remain.
+
+The bilingual guide now opens on page load, includes the four-step flow and the two-object condition, and supports switching language inside the dialog. It can be dismissed with its start button, close control or Escape and reopened from the header. Restarting the arrangement does not interrupt the player with another automatic guide. Packing and all-position lighting remain unchanged.
+
+作者重新确认保留查看两件物品的流程，指出主要问题是不会主动打开“怎么玩”。因此恢复条件，并显示 0/2、1/2 与可开门状态。重复查看同一物品不累计。首次进入主动弹出双语引导，明确流程和开门条件，关闭后仍可从右上角再次打开；重启布置不重复强制弹出。
+
+Browser verification covered automatic guide display, language switching inside it, dismissal, blocked opening at zero/one distinct object, repeated inspection not increasing the count, and successful endings after two. Existing drag, packing, lighting, undo, keyboard and mobile touch checks also passed. These changes follow author feedback, not a newly claimed classmate session.

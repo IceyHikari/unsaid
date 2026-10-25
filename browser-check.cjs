@@ -6,9 +6,11 @@ const assert=require('node:assert/strict');
  const page=await browser.newPage({viewport:{width:1440,height:1000}});
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.goto('http://127.0.0.1:8033');
+ assert(await page.locator('#help-dialog').isVisible());await page.locator('#help-language').click();assert((await page.locator('#help-copy').innerText()).includes('TWO'));await page.locator('#help-language').click();await page.screenshot({path:'screenshot-guide.png',fullPage:true});await page.locator('#help-ok').click();
  await page.screenshot({path:'screenshot.png',fullPage:true});
- // Opening must work from a fresh session with no inspected objects.
- await page.locator('#finish').click();assert(await page.locator('#ending').isVisible());await page.locator('#continue').click();
+ // Opening is gated by two distinct objects, with visible progress and feedback.
+ await page.locator('#finish').click({force:true});assert(!(await page.locator('#ending').isVisible()));assert((await page.locator('#readiness').innerText()).includes('0/2'));assert((await page.locator('#status').innerText()).includes('2'));
+ await page.locator('[data-object=photo]').click();await page.locator('#put-back').click();await page.locator('[data-object=photo]').click();await page.locator('#put-back').click();assert((await page.locator('#readiness').innerText()).includes('1/2'));await page.locator('#finish').click({force:true});assert(!(await page.locator('#ending').isVisible()));
  for(const id of ['photo','sketch']){await page.locator(`[data-object=${id}]`).click();await page.locator('#flip').click();assert(await page.locator('#object-copy').innerText());await page.locator('#put-back').click();}
  assert.equal(await page.locator('#notes li').count(),2);
  await page.locator('#light').fill('48');await page.locator('#light').dispatchEvent('change');assert.equal(await page.locator('#hidden-light').evaluate(e=>e.style.opacity),'1');assert((await page.locator('#voice').innerText()).includes('窗帘'));
@@ -38,6 +40,6 @@ const assert=require('node:assert/strict');
  for(const id of ['photo','sketch']){await page.locator(`[data-object=${id}]`).click();await page.locator('#put-back').click();}
  await page.locator('#finish').click();assert(await page.locator('#play-again').isVisible());assert(await page.locator('#ending').evaluate(e=>e.scrollWidth<=e.clientWidth));await page.locator('#play-again').click();assert(!(await page.locator('#ending').isVisible()));assert(await page.locator('#undo').isDisabled());
  // Touch-enabled context: inspect a card and move the painting with alternatives.
- const mobile=await browser.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true});const phone=await mobile.newPage();await phone.goto('http://127.0.0.1:8033');await phone.locator('[data-object=photo]').tap();await phone.locator('#flip').tap();await phone.locator('#put-back').tap();await phone.locator('.place-option[data-place=rack]').tap();assert.equal(await phone.locator('.place-option[data-place=rack]').getAttribute('aria-pressed'),'true');
+ const mobile=await browser.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true});const phone=await mobile.newPage();await phone.goto('http://127.0.0.1:8033');assert(await phone.locator('#help-dialog').isVisible());await phone.locator('#help-ok').tap();await phone.locator('[data-object=photo]').tap();await phone.locator('#flip').tap();await phone.locator('#put-back').tap();await phone.locator('.place-option[data-place=rack]').tap();assert.equal(await phone.locator('.place-option[data-place=rack]').getAttribute('aria-pressed'),'true');
  assert.deepEqual(errors,[]);await browser.close();console.log('PASS: lamp slider + drag, reveal + undo, inspect + flip, label toggle, four endings, painting drag, invalid drop, keyboard, language, reset confirmation, mobile layout + touch controls.');
 })().catch(e=>{console.error(e);process.exit(1);});

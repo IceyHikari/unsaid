@@ -10,3 +10,4 @@
 #painting[data-location=pack].illuminated{filter:drop-shadow(0 0 9px #f8d58d80) brightness(1.12)}
 #painting.dragging{transform:none!important}#painting.dragging::after{display:none}
 .final-painting .final-wrap{position:absolute;inset:-4%;width:auto;height:auto;transform:none;background:linear-gradient(90deg,transparent 43%,#c4ac7ca8 43%,#c4ac7ca8 57%,transparent 57%);border:0;z-index:3}
+#readiness{font-size:12px;line-height:1.7;color:var(--gold);margin:0 0 12px}.primary[aria-disabled=true]{background:#89917b;color:#18241d;border-color:#89917b}#help-dialog{max-height:92dvh}#help-copy{font-size:13px;line-height:1.7}

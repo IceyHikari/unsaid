@@ -22,11 +22,11 @@ The first version used branching dialogue. Following the author's feedback that 
 - Pick up the photograph, study sheet and exhibition label. Turn each over to read the reverse.
 - Drag the painting to the wall, holding rack or packing area. The visible placement, selected control and character response change together. Position buttons below the scene offer the same action; clicking the painting cycles through positions.
 - Take the statement off the wall or put it back. Its location in the room changes.
-- Open the doors whenever you are ready; no minimum object count is required. An illustrated morning epilogue reflects your actual arrangement: sharing the statement, exhibiting the painting alone, leaving it on the rack, or taking it home. Each has distinct closing text. Revise the exhibition or begin a new evening using separate buttons.
+- A bilingual guide opens when the page loads and can be reopened with “How to play”. Inspect at least two different objects before opening the doors; a visible counter shows progress. An illustrated morning epilogue reflects your actual arrangement: sharing the statement, exhibiting the painting alone, leaving it on the rack, or taking it home. Each has distinct closing text. Revise the exhibition or begin a new evening using separate buttons.
 - In the packing area, the painting lies diagonally inside the box under translucent protective paper. Moving it back to the wall or rack removes the paper. Light can still reach the visible painted detail.
 - Undo restores the previous action. Start over asks for confirmation. English/Chinese switching preserves the arrangement.
 
-拖灯或使用滑块照亮画中细节；拿起三件物品并翻面；将画放到墙面、暂存架或包装区；决定展签是否公开。随时可以开门，不要求先查看多少物件。包装区里的画会斜放在半透明保护纸下，移回墙面或暂存架即可拆开。可以回到房间继续调整，也可撤回或确认重启。语言切换保留状态。
+进入页面先弹出可切换中英文的引导，右上角可再次打开。查看两件不同物品后可以开门，按钮上方显示进度。拖灯或使用滑块照亮画中细节；拿起物品并翻面；安排画作位置，决定展签是否公开。包装区里的画斜放在半透明保护纸下，移回墙面或暂存架即可拆开。可以回到房间继续调整，也可撤回或确认重启。语言切换保留状态。
 
 ## Run locally / 本地运行
 

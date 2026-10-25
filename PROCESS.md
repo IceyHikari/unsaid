@@ -77,3 +77,13 @@ P2 liked the light interaction and the texture of the photograph/studies, but wa
 Implemented response: alignment now follows painting position in all three destinations, with a visible warm highlight. The label has a typeset face and explicit displayed/set-aside consequences. Opening the doors creates an epilogue with a morning scene based on the actual arrangement, four distinct closing outcomes, visitor/character text, and separate revise/restart actions. Preserve the photograph, studies and language switching in response to positive feedback. The inline SVG morning scene is code-authored with Codex; no new external assets or services were introduced.
 
 Developer verification: browser checks exercised illumination on the wall, rack and packing area, object inspection, undo, all four closing outcomes, wrapping visible in the packing ending, invalid-drop recovery, keyboard alternatives, reset confirmation and touch-enabled controls. Screenshots were captured. A peer retest of these new changes has not yet been reported. Before final submission, clarify whether the original trial began without an explanation of the controls, as the brief requests.
+
+### Follow-up correction — opening and packing / 后续修正：开门与包装
+
+The author supplied screenshots showing an apparently unresponsive “Open the doors” action and a painting standing upright over the packing area. The first problem was an unintended usability barrier: the click handler required two inspected objects and returned only a small status message. Remove that gate so every arrangement, including a fresh session, can reach its epilogue immediately. Exploration remains available without being a hidden prerequisite.
+
+For packing, replace the upright painting with a diagonal, flattened placement inside the box under translucent protective paper. Keep the painted detail visible through the paper so the revised lighting interaction remains useful. Moving the painting back to the wall/rack removes the packing treatment. The final take-home scene adds sealing tape over this same geometry. The artwork itself stays opaque; only the protective paper is translucent.
+
+作者截图显示“开门”被查看数量条件拦住，且包装区画作仍直立。移除查看两件物品的门槛，任何布置都可以进入结局。包装区改为画作斜放、压低透视并覆半透明保护纸；画本身保持不透明。移回墙面或暂存架即可拆开，带回家的结局在同一包装上增加封口胶带。
+
+Verification: browser checks now open an ending from a fresh session, return to editing, exercise all endings, check packed geometry and non-intercepting paper, and drag the packed painting back out. A packing screenshot and revised ending screenshot were captured and inspected. Versioned CSS/JS URLs help existing visitors receive the changed behavior.

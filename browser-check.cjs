@@ -7,7 +7,8 @@ const assert=require('node:assert/strict');
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.goto('http://127.0.0.1:8033');
  await page.screenshot({path:'screenshot.png',fullPage:true});
- await page.locator('#finish').click();assert(!(await page.locator('#ending').isVisible()));assert((await page.locator('#status').innerText()).includes('两样'));
+ // Opening must work from a fresh session with no inspected objects.
+ await page.locator('#finish').click();assert(await page.locator('#ending').isVisible());await page.locator('#continue').click();
  for(const id of ['photo','sketch']){await page.locator(`[data-object=${id}]`).click();await page.locator('#flip').click();assert(await page.locator('#object-copy').innerText());await page.locator('#put-back').click();}
  assert.equal(await page.locator('#notes li').count(),2);
  await page.locator('#light').fill('48');await page.locator('#light').dispatchEvent('change');assert.equal(await page.locator('#hidden-light').evaluate(e=>e.style.opacity),'1');assert((await page.locator('#voice').innerText()).includes('窗帘'));
@@ -22,6 +23,8 @@ const assert=require('node:assert/strict');
  // Drag from rack into packing area.
  let painting=await page.locator('#painting').boundingBox();await page.mouse.move(painting.x+painting.width/2,painting.y+painting.height/2);await page.mouse.down();await page.mouse.move(room.x+room.width*.9,room.y+room.height*.86,{steps:12});await page.mouse.up();assert.equal(await page.locator('.place-option[data-place=pack]').getAttribute('aria-pressed'),'true');
  await page.locator('#light').fill('88');await page.locator('#light').dispatchEvent('change');assert.equal(await page.locator('#hidden-light').evaluate(e=>e.style.opacity),'1');
+ assert.equal(await page.locator('#painting').getAttribute('data-location'),'pack');assert.notEqual(await page.locator('#painting').evaluate(e=>getComputedStyle(e).transform),'none');assert.equal(await page.locator('#painting').evaluate(e=>getComputedStyle(e,'::after').pointerEvents),'none');
+ await page.screenshot({path:'screenshot-packing.png',fullPage:true});
  await page.locator('#finish').click();assert.equal(await page.locator('#ending-title').innerText(),'今晚，先带回家');assert(await page.locator('.final-wrap').isVisible());await page.screenshot({path:'screenshot-ending.png',fullPage:true});await page.locator('#continue').click();
  // Invalid drop restores placement with feedback.
  painting=await page.locator('#painting').boundingBox();await page.mouse.move(painting.x+painting.width/2,painting.y+painting.height/2);await page.mouse.down();await page.mouse.move(room.x+room.width*.1,room.y+room.height*.3,{steps:10});await page.mouse.up();assert.equal(await page.locator('.place-option[data-place=pack]').getAttribute('aria-pressed'),'true');assert((await page.locator('#status').innerText()).includes('回到原处'));

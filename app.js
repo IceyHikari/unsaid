@@ -1,7 +1,7 @@
 // Deliberate action -> scene state -> visual change and character feedback.
 const $=id=>document.getElementById(id), T=(en,zh)=>lang?zh:en;
 const initial=()=>({light:30,place:'wall',label:true,seen:[],revealed:false});
-let lang=1,state=initial(),history=[],currentObject=null,flipped=false,drag=null,voice='welcome',status='';
+let lang=0,state=initial(),history=[],currentObject=null,flipped=false,drag=null,voice='welcome',status='';
 const names={wall:['Wall','墙面'],rack:['Holding rack','暂存架'],pack:['Packing area','包装区'],photo:['Old photograph','旧照片'],sketch:['Study sheet','草稿'],label:['Exhibition label','展签']};
 const text={welcome:["Could you help me get this room ready? I'm still not sure how much I want to share tomorrow.","陪我整理一下吧。我还没想好，明天到底想让别人看见多少。"],light:["There. That strip by the curtain. She always left it open a little. That's the part I kept repainting.","就是那里，窗帘旁边的那条光。她总会留一道缝。那是我一直重画的部分。"],wall:["From here you can see the whole room. Could we leave a little space around it?","放在这里，能看见整个房间。周围留一点空白吧。"],rack:["Let's leave it here while I think. It feels easier when it doesn't have to be a final decision.","先放在这里，让我想想。不用马上决定的话，好像就没那么难了。"],pack:["Maybe I'll take it home tonight. Could you leave the wrapping open until we're done?","也许今晚我想把它带回家。先别封好包装，等我们整理完。"],labelOff:["Thank you. I can show the painting without giving everyone the whole story.","谢谢。把画留下，也不一定要把所有事情都讲出来。"],labelOn:["That is a lot to put beside a painting. Let me look at it once more before morning.","放在一幅画旁边，这些话好像有点多。天亮前，再让我看一次吧。"]};
 function snapshot(){return {state:structuredClone(state),voice};}

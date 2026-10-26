@@ -6,8 +6,9 @@ const assert=require('node:assert/strict');
  const page=await browser.newPage({viewport:{width:1440,height:1000}});
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.goto('http://127.0.0.1:8033');
- assert(await page.locator('#help-dialog').isVisible());await page.locator('#help-language').click();assert((await page.locator('#help-copy').innerText()).includes('TWO'));await page.locator('#help-language').click();await page.screenshot({path:'screenshot-guide.png',fullPage:true});await page.locator('#help-ok').click();
+ assert(await page.locator('#help-dialog').isVisible());assert.equal(await page.locator('html').getAttribute('lang'),'en');assert((await page.locator('#help-copy').innerText()).includes('TWO'));assert.equal(await page.locator('#help-language').innerText(),'中文');await page.locator('#help-language').click();assert((await page.locator('#help-copy').innerText()).includes('至少两件'));await page.locator('#help-language').click();await page.screenshot({path:'screenshot-guide.png',fullPage:true});await page.locator('#help-ok').click();
  await page.screenshot({path:'screenshot.png',fullPage:true});
+ await page.locator('#language').click();
  // Opening is gated by two distinct objects, with visible progress and feedback.
  await page.locator('#finish').click({force:true});assert(!(await page.locator('#ending').isVisible()));assert((await page.locator('#readiness').innerText()).includes('0/2'));assert((await page.locator('#status').innerText()).includes('2'));
  await page.locator('[data-object=photo]').click();await page.locator('#put-back').click();await page.locator('[data-object=photo]').click();await page.locator('#put-back').click();assert((await page.locator('#readiness').innerText()).includes('1/2'));await page.locator('#finish').click({force:true});assert(!(await page.locator('#ending').isVisible()));

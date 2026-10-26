@@ -4,6 +4,8 @@ SD5913 Assignment 3 · Individual interactive experience · Minyi Jin
 
 [Play in your browser / 在线试玩](https://iceyhikari.github.io/unsaid/)
 
+English opens by default, including the introductory guide. Select **中文** in the guide or header for Chinese; switching language preserves the current arrangement. / 默认以英文打开，包含首次引导；可在引导或页头选择中文，切换保留当前布置。
+
 ![Interactive studio with a movable painting and lamp](screenshot.png)
 
 ## The idea / 作品构想
@@ -77,7 +79,7 @@ Due **1 November 2026, 23:59 Hong Kong time**, according to the supplied Canvas 
 - [ ] Author review of the revised scene and interaction.
 - [x] Two classmates' feedback recorded as reported by the author, with resulting design decisions.
 - [ ] Confirm whether the trial started before explaining controls; report any final participant retest.
-- [ ] Final fresh-terminal run and signed-out repository check.
+- [x] Fresh-download run and anonymous repository check verified on 25 October; final language revision checked on 26 October.
 - [ ] Final repository URL submitted on Canvas by the author.
 
 See [PROCESS.md](PROCESS.md), [USER-TRIAL.md](USER-TRIAL.md) and [CREDITS.md](CREDITS.md).

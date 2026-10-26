@@ -97,3 +97,11 @@ The bilingual guide now opens on page load, includes the four-step flow and the 
 作者重新确认保留查看两件物品的流程，指出主要问题是不会主动打开“怎么玩”。因此恢复条件，并显示 0/2、1/2 与可开门状态。重复查看同一物品不累计。首次进入主动弹出双语引导，明确流程和开门条件，关闭后仍可从右上角再次打开；重启布置不重复强制弹出。
 
 Browser verification covered automatic guide display, language switching inside it, dismissal, blocked opening at zero/one distinct object, repeated inspection not increasing the count, and successful endings after two. Existing drag, packing, lighting, undo, keyboard and mobile touch checks also passed. These changes follow author feedback, not a newly claimed classmate session.
+
+## 26 October 2026 — English entry and submission review / 英文入口与提交复核
+
+At the author's request, English is now the default for the page and introductory guide. Chinese remains selectable in both the guide and header, with arrangement state preserved. No new gameplay was added. Browser checks verified the English initial document, English guide, Chinese option, language switching, exploration condition, core interactions and four endings. The English guide and desktop screenshots were refreshed.
+
+A fresh public clone was served using the README commands on 25 October, and its interaction passed the browser checks. The public repository and live page both returned HTTP 200 without a signed-in browser session. The repository includes source, inline visual assets, screenshots, README, PROCESS, credits and development history. Two classmates' feedback and subsequent decisions are recorded as relayed by the author, with supplied dates. The only unconfirmed trial detail is whether use began before the author explained controls. Final Canvas URL submission is also outside the developer's verified evidence. Neither signatures nor a second round of participant testing is required by the supplied brief; a short recording and a live link are supplementary, and a live link is already provided.
+
+按作者要求，页面和首次引导默认英文，中文作为引导及页头中的可选项，切换保留布置。不增加玩法。英文入口、语言切换、查看条件、核心操作和四种结局均通过验证。源码、素材、截图、说明、过程、署名和开发历史齐全。尚待确认的试用事实是同学是否先自行尝试再听讲解；Canvas 最终提交网址也尚未由开发助手核实。不要求签名，也不强制修改后再试一次。

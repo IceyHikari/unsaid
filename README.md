@@ -54,9 +54,9 @@ A relevant mistake is an invalid painting drop: the picture returns to its previ
 
 ## Limitations / 局限
 
-This is stylised fiction involving bereavement, not a counselling tool. Light reveals an authored visual layer rather than simulating optics. The artwork and room are geometric SVG illustrations. Painting movement snaps to three destinations; other objects are inspected in place. Refreshing restarts the session; there is no persistent save, audio or network AI. Feedback from two classmates has been reported by the author and informed revisions; the developer did not directly observe those sessions. Whether controls were explained before those sessions still needs clarification. A participant retest of the latest changes has not been reported.
+This is stylised fiction involving bereavement, not a counselling tool. Light reveals an authored visual layer rather than simulating optics. The artwork and room are geometric SVG illustrations. Painting movement snaps to three destinations; other objects are inspected in place. Refreshing restarts the session; there is no persistent save, audio or network AI. Feedback from two classmates has been reported by the author and informed revisions; the developer did not directly observe those sessions. On 26 October the author confirmed that a classmate tried the experience independently before the author explained the controls. A participant retest of the latest changes has not been reported.
 
-这是涉及丧亲记忆的风格化虚构作品。光照通过预设图层表达，画作吸附到三个固定位置，不是物理模拟。刷新会重启，没有存档、声音或在线生成。两位同学的反馈已由作者转述并用于修改，助手未直接观察试用。试用前是否讲解玩法仍待确认，新版尚未收到参与者复测。
+这是涉及丧亲记忆的风格化虚构作品。光照通过预设图层表达，画作吸附到三个固定位置，不是物理模拟。刷新会重启，没有存档、声音或在线生成。两位同学的反馈已由作者转述并用于修改，助手未直接观察试用。10 月 26 日作者确认同学先独立尝试、之后才讲解操作。新版尚未收到参与者复测。
 
 ## Development verification / 开发验证
 
@@ -78,7 +78,7 @@ Due **1 November 2026, 23:59 Hong Kong time**, according to the supplied Canvas 
 - [x] Development decisions, AI assistance and credits documented.
 - [ ] Author review of the revised scene and interaction.
 - [x] Two classmates' feedback recorded as reported by the author, with resulting design decisions.
-- [ ] Confirm whether the trial started before explaining controls; report any final participant retest.
+- [x] Author confirmed independent use before explaining controls (26 October).
 - [x] Fresh-download run and anonymous repository check verified on 25 October; final language revision checked on 26 October.
 - [ ] Final repository URL submitted on Canvas by the author.
 

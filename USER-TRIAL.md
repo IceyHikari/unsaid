@@ -2,6 +2,10 @@
 
 ## Reported feedback / 已转述的反馈
 
+**26 October clarification:** the author confirmed that a classmate tried the experience independently before the author explained how to use it. This resolves the previously unconfirmed trial-order detail below. The author did not specify which participant this confirmation refers to; it is not attributed to both sessions individually.
+
+**10 月 26 日补充：**作者确认，同学在讲解操作之前已先自行尝试。这补齐了此前尚未确认的试用顺序；作者未指明对应哪位同学，因此不分别给两次试用补写此细节。
+
 Source: on 25 October 2026 the author stated that the comments below came from two different classmates and were relayed by the author. The author subsequently supplied the trial timing: P1 tried the first playable version on the day it was provided (20 October, consistent with commit `8f5634f`); P2 tried the spatial version on Thursday 22 October. The developer did not directly observe these sessions. Entries are paraphrases, not verbatim quotations. Devices and whether participants received an explanation before starting were not supplied. 25 October is the date these reports were documented. No signatures or identifying information are included.
 
 来源：2026 年 10 月 25 日，作者说明以下意见分别来自两位不同同学，并补充试用时间：P1 在首个可玩版本提供当天（10 月 20 日，与提交 `8f5634f` 一致）尝试；P2 在 10 月 22 日星期四尝试场景版。助手未直接观察试用，记录为转述而非逐字引用。设备和开始前是否讲解玩法尚未提供。10 月 25 日为反馈整理日期。
@@ -31,7 +35,7 @@ P2 喜欢灯光、照片与草稿质感和双语。问题是画离开墙面后�
 
 ## Follow-up protocol / 后续试用步骤
 
-For the final record, confirm whether participants initially used the experience before receiving an explanation of its controls. The steps below can also be used for a fresh retest; they do not claim such a retest has happened.
+The independent-use condition was confirmed by the author on 26 October, as noted above. The steps below are retained for an optional future retest; they do not claim such a retest has happened.
 
 1. Ask one person willing to try a small illustrated studio. Do not explain the controls or intended message beforehand. Let them choose English or Chinese.
 2. Say only: “Please try this experience. Tell me what you are thinking as you use it.”

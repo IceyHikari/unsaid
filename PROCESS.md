@@ -105,3 +105,9 @@ At the author's request, English is now the default for the page and introductor
 A fresh public clone was served using the README commands on 25 October, and its interaction passed the browser checks. The public repository and live page both returned HTTP 200 without a signed-in browser session. The repository includes source, inline visual assets, screenshots, README, PROCESS, credits and development history. Two classmates' feedback and subsequent decisions are recorded as relayed by the author, with supplied dates. The only unconfirmed trial detail is whether use began before the author explained controls. Final Canvas URL submission is also outside the developer's verified evidence. Neither signatures nor a second round of participant testing is required by the supplied brief; a short recording and a live link are supplementary, and a live link is already provided.
 
 按作者要求，页面和首次引导默认英文，中文作为引导及页头中的可选项，切换保留布置。不增加玩法。英文入口、语言切换、查看条件、核心操作和四种结局均通过验证。源码、素材、截图、说明、过程、署名和开发历史齐全。尚待确认的试用事实是同学是否先自行尝试再听讲解；Canvas 最终提交网址也尚未由开发助手核实。不要求签名，也不强制修改后再试一次。
+
+### Trial-order confirmation / 试用顺序确认
+
+Later on 26 October, the author explicitly confirmed that a classmate had tried the experience independently before the author explained the controls. This resolves the open trial-order question recorded above. The confirmation does not identify a specific participant, so it is not expanded into separate claims about both sessions. README and USER-TRIAL were updated; no gameplay changed. The author recalls submitting on Canvas and will provide the submission details for URL verification; the exact submitted URL has not yet been independently checked.
+
+10 月 26 日稍后，作者明确确认同学在讲解操作之前先自行尝试，补齐了前述试用顺序问题。未指明对应参与者，不扩写为两次试用各自的观察细节。同步更新 README 与试用记录，不改玩法。作者记得已在 Canvas 提交，将补充提交详情供核对；实际提交网址仍待核实。

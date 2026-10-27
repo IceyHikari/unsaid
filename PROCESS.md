@@ -1,113 +1,95 @@
-# Process / 开发记录
+# Process / 创作与修改记录
 
-## 16 October 2026 — Establish the repository / 建立仓库
+I am interested in empathy and artistic expression in games. For this assignment, I wanted a small scene where the player could notice what matters to someone and help decide how it is presented. I used Codex throughout development for proposals, draft writing and implementation. I made the design decisions through trying the prototypes, discussing classmates' feedback and requesting specific revisions.
 
-The author supplied the full Canvas Assignment 3 brief and requested a repository first. The initial scope is a planning scaffold. No gameplay, participant trial or user feedback has been completed for this project.
+我一直很在意游戏里的同理心与艺术表达。这次我想把它收在一个小场景里：玩家先发现某件事为什么重要，再参与决定怎样把它呈现出来。我在开发中使用了 Codex 协助提出方案、起草内容和实现程序，通过体验原型、讨论同学反馈和提出具体修改来确定方向。
 
-作者提供了 Canvas 上 Assignment 3 的完整要求，并要求先建立仓库。本次范围是规划框架；本项目尚未完成游戏实现、真人试用或试用反馈。
+This is a retrospective account edited on 27 October 2026. Development dates follow the Git history. My classmates tried the versions on 20 and 22 October; I supplied their feedback for the written record on 25 October and confirmed independent use before explanation on 26 October. Their comments below are paraphrases, not direct quotations.
 
-### AI assistance / AI 协作
+这份记录于 2026 年 10 月 27 日整理为我的创作自述。开发日期对应 Git 历史；同学在 10 月 20 日和 22 日试用，我在 25 日补充他们的反馈，26 日确认了先自行尝试、后讲解的顺序。记录中的意见是转述，不是逐字引用。
 
-Codex helped interpret the brief, proposed a short branching conversation concept and prepared the repository documents. The concept draws on the author's previously stated interest in empathy, artistic intention and AIGC game design. The specific scene and dialogue still need the author's review.
+## 16 October: starting small / 从小范围开始
 
-Codex 协助梳理要求，提出短篇分支对话构想，并准备仓库文档。构想参考作者此前关于同理心、艺术表达和 AIGC 游戏设计的兴趣；具体场景与台词仍待作者审阅。
+After reading the Canvas brief, I asked for a repository first. Codex proposed a branching conversation based on my interest in empathy and game design. I kept the scope small: one scene with an understandable input, response and next action. At this stage there was a plan and documentation, but no playable version or user trial.
 
-### Kept / 暂时保留
+读完 Canvas 要求后，我先建立仓库。Codex 根据我对同理心和游戏设计的兴趣，提出了分支对话方案。我先把范围控制在一个场景里，让输入、回应和下一步操作容易理解。当时只有规划和文档，还没有可玩版本或真人试用。
 
-Keep one visible input–response–feedback loop as the planning focus because it can be explained and tested within a small project. This is a provisional planning decision, not a reported user-test finding.
+## 20 October: a conversation prototype / 第一个对话原型
 
-暂以一个可见的“输入—响应—反馈”循环为重点，便于在小项目中实现、解释和测试。这是暂定规划，不是真人试用结论。
+I asked Codex to implement the first playable version. It proposed the fictional exhibition-night scene and drafted the bilingual dialogue: Alex is considering taking down a painting of their mother's room. The code had 12 routes leading to four endings, with back, restart and language switching. This version remains in commit `8f5634f`.
 
-### Changed or deferred / 调整与延后
+I kept reversible choices and immediate character responses because players could see how their actions changed the conversation. The fiction and dialogue were AI-assisted drafts, not events from my life. The initial version had no empathy score, but it explicitly announced that there was no score or perfect response. I later found that wording stiff and asked for it to be removed.
 
-The assistant proposed a narrative game, but the author requested repository setup first. Accordingly, this commit records the concept as provisional and defers implementation rather than presenting the suggestion as an approved finished design.
+A classmate tried this version on the day I received it, 20 October. Their response was that it felt too simple and passive, like following a branching visual novel. I had a similar concern: most of the player's activity was choosing sentences. Adding more dialogue branches would have kept the same problem.
 
-助手提出叙事游戏后，作者要求先建立仓库。因此本次仅记录暂定构想，延后实现，不将建议写成已确认的完成设计。
+我让 Codex 实现了首个可玩版本。它提出展览前夜的虚构情境，并起草中英文对白：阿岚正在考虑撤下关于母亲房间的画。程序有 12 条路线、四个结尾，支持回退、重启和语言切换。
 
-## User trial / 真人试用
+我保留了可回退的选择和即时角色回应，但后来觉得“没有评分，也没有完美回应”这样的说明很生硬，要求删掉。故事是 AI 协助创作的虚构情节，并非我的亲身经历。
 
-At the initial scaffold stage, no trial had been reported. For the later peer feedback reported by the author on 25 October, see the dated entry below and USER-TRIAL.md. Participant identities are not published.
+10 月 20 日收到可玩版本后，我当天就给一位同学看了。他觉得体验像分支视觉小说，主要跟着剧情走。我自己也觉得玩家能做的事情太少，所以没有继续增加对话分支。
 
-尚未进行。原型可运行后，在解释操作之前请至少一人尝试；记录实际操作、犹豫点、反馈是否易懂，以及据此作出的修改或保留理由。不公开参与者身份信息或录音录像。
+## 21 October: moving into the room / 把操作放进画面
 
-（以上为初始阶段状态；10 月 25 日作者转述的两位同学反馈，见文末及 USER-TRIAL.md。）
+I asked for a room the player could interact with directly. The revised prototype used a lamp, painting, photograph, studies and exhibition label. Players could move the lamp, inspect and flip objects, choose where the painting went and decide whether to display Alex's statement. Codex implemented the HTML, JavaScript and inline SVG/CSS scene from this direction.
 
-## 20 October 2026 — First playable conversation / 首个可玩对话
+I kept the bilingual interface, local execution and undo. I wanted people to explore without worrying that one misplaced action would end the experience. Position buttons and a native slider offered alternatives to precise dragging. An invalid drop returned the painting safely to its previous location with a message.
 
-Following the author's instruction to begin implementation, Codex wrote the HTML/CSS/JavaScript prototype and bilingual fictional dialogue. The scene is the night before an exhibition: a friend considers removing a painting connected to their mother's room. The player's replies change what the friend says and the available next actions. Twelve routes lead to four endings. This is AI-assisted draft writing, not a personal event reported by the author.
+The first spatial version still had limits: the light detail worked only when the painting was on the wall, and the endings were mostly text in a dialog. These became specific points to revise after the next trial.
 
-作者要求开始实现后，Codex 编写了浏览器原型与中英文虚构对白。展览前夜，朋友考虑撤下与母亲房间有关的作品；玩家的回应改变后续对话。12 条路线通向四个结尾。这是 AI 协助创作的虚构初稿，不是作者声称亲历的事件。
+我要求把操作放进房间本身。玩家可以移动灯、拿起物件翻面、安排画的位置，还能决定是否公开展签上的自述。Codex 根据这个方向实现了网页和内联 SVG/CSS 场景。
 
-Kept: explicit dialogue states, immediate character feedback and reversible choices, because these make the causal link between input and response inspectable. Changed: an evaluative “empathy score” approach was avoided in favor of unranked endings; a private decision to take the work home is a valid ending too. This was an implementation decision by the assistant, still awaiting the author's review, not evidence from a participant.
+我保留双语、本地运行和撤回，希望玩家敢于试放、也能改变主意。位置按钮和滑块提供拖动以外的操作方式；放错位置会恢复原位并提示。那一版的灯光只能在画挂墙时触发，结局也主要是一段弹窗文字，这些问题后来成为下一轮修改的重点。
 
-保留明确对话状态、即时反馈与可回退选择，便于解释输入如何改变响应。采用不排名的结尾，而不以“同理心分数”评判玩家；把作品带回家也是成立的选择。以上是助手的实现决定，仍待作者审阅，不是真人试用发现。
+## 22 October trial, documented 25 October / 第二位同学的反馈
 
-Verification: Node graph traversal checked all 12 routes, bilingual fields and four endings. Headless Microsoft Edge checked choice response, back, rapid double-click protection, ending recap, language switching, reset and 390 px mobile overflow; no page errors occurred. Desktop and mobile screenshots were captured. These are developer checks, not the required human trial. USER-TRIAL.md provides the observation protocol. The official course automatic checker was not run.
+My second classmate tried the spatial version on Thursday 22 October. They liked the light interaction, the photograph and study textures, and the bilingual presentation. However, they were disappointed when moving the painting to the rack or packing area stopped the light interaction. They did not understand what the label changed and thought its appearance needed work. Opening the doors also felt unclear: returning to the same room was the most obvious next action, so the ending did not feel like a conclusion.
 
-## 21 October 2026 — From dialogue choices to arranging a room / 从选择台词到整理房间
+I kept the materials they liked and asked for three changes on 25 October:
 
-The author tried/reviewed the direction and said the interaction felt too simple: it consisted mainly of clicking prewritten responses. They also rejected the explicit “no score, no perfect reply” copy as unnatural. This is direct author feedback, not an independent participant trial.
+- Let the light affect the painting in every destination. The alignment target now follows its position, and a warm visual response confirms when it is lit.
+- Make the label's effect visible. Its face was redesigned, and inspecting it explains whether visitors will read the personal statement or see the painting alone.
+- Give opening the doors a clear result. The morning scene now shows the actual arrangement, with four different closing outcomes, visitor or character text, and separate choices to revise the exhibition or begin again.
 
-作者认为第一版主要在点击预设台词，交互太简单；并明确要求删掉“没有评分，也没有完美回应”等生硬文案。这是作者反馈，不是课程要求的独立参与者试用。
+第二位同学在 10 月 22 日星期四尝试了场景版。他喜欢灯光、照片和草稿的质感，也认可中英文切换。但画放到暂存架或包装区后，灯光就不起作用了，他觉得失望。展签的意义和外观不够清楚；“准备开门”之后又只能回到房间，收尾也不明确。
 
-Changed: replace the dialogue choice list with a studio scene. A movable lamp reveals a curtain detail, three inspectable objects carry story information on front and back, painting placement changes the room, and the exhibition statement can be displayed or set aside. Closing text reflects the final arrangement. Remove the old story graph and its graph-only checker from the current tree; retain the original version in Git history. No dialogue scoring copy appears in the scene.
+我在 25 日整理这些反馈，并要求保留受到认可的部分，补齐三个位置的灯光响应、展签公开状态和真正可见的结局。新的清晨画面沿用玩家的布置，玩家能看到这次决定留下了什么，再选择重新布置或开始新的一晚。
 
-调整：用工作室场景替代对话选项。移动灯光发现窗帘细节，查看和翻转物件，安排画作位置，决定展签是否公开。收尾取决于最终布置。旧对话与图结构检查从当前文件中移除，早期版本仍保留在历史里。
+## 25 October: packing and guidance / 包装状态与操作引导
 
-Kept: bilingual presentation, reversible actions and local execution. Changed the assistant's earlier idea of adding more dialogue branches: additional choices would not address the author's concern about passivity. A single shared state now connects each input to visible arrangement and character feedback. Buttons and a native range input provide alternatives to precision dragging.
+In my own review, I noticed that the packed painting still stood upright over the box. I asked for a different state: it should lie diagonally inside, under translucent protective paper. The picture itself stays opaque. Moving it back to the wall or rack removes the wrapping; the take-home ending adds sealing tape. I kept the light interaction available through the protective paper.
 
-保留中英文、本地运行和可撤回操作。不继续堆叠对话分支，而是让输入改变房间本身。为拖动提供按钮和滑块替代，避免精确拖动成为操作门槛。
+I also thought the opening button was unresponsive. It was actually requiring two inspected objects and showing a small message. We briefly removed that condition. After looking again, I decided the two-object flow was reasonable; the missing part was the introduction. I asked for “How to play” to appear on entry, since players would not necessarily open it themselves.
 
-Code and SVG/CSS scene artwork were produced with Codex. The fictional bereavement scene is an assistant-authored draft, not an autobiographical account. The author authorized the spatial interaction direction; review of exact wording remains open. No external image generator or online model is required at runtime.
+The final flow restores the two-object condition with visible progress: 0/2, 1/2 and ready. Reopening the same object counts once. Trying to open early states which objects are available and how many remain. The guide supports English and Chinese, can be closed or reopened, and does not interrupt the player again when they restart an arrangement.
 
-Verification: headless Edge exercised actual mouse dragging, native slider input, undo, object inspection/flipping, label removal/replacement, all four closing scenes, invalid drop return, keyboard placement, language preservation and reset cancellation/confirmation. A 390 px layout and touch-enabled browser context were also checked. No JavaScript page errors were observed. Desktop/mobile screenshots were visually inspected. This is developer verification, not a claim that a person used the design without guidance. No official course checker was run.
+我自己检查时发现，画放进包装区后仍然直立在盒子上方，所以要求它斜躺在盒内，覆上半透明保护纸，移回其他位置即可拆开。画本身保持不透明，灯光仍能照到细节。
 
-Remaining: ask another person to use the revised studio before explaining controls; record their real attempts, hesitation and feedback using USER-TRIAL.md, then document the resulting change or retention decision. Do not claim that the author's critique or browser automation fulfils this requirement.
+我还一度以为开门按钮失灵，其实是“两件物品”的条件只给了一条不明显的提示。我们短暂去掉过条件，但我重新看后觉得流程可以保留，问题在于玩家不一定会主动打开“怎么玩”。因此我要求进入时先弹出引导，并把查看进度明确放在按钮旁。重复查看同一件不累计，尚未满足条件时会说明还差几件。
 
-## 25 October 2026 — Peer feedback reported by the author / 作者转述同学反馈
+## 26 October: English entry and final checks / 英文入口与复核
 
-The author clarified that the earlier dialogue critique and the later studio critique came from two different classmates and were relayed in conversation. They are recorded separately as P1 and P2 in USER-TRIAL.md. This supersedes our earlier attribution of those comments solely to author review. The author then specified that P1 tried the first playable version on the day it was provided, 20 October 2026 (consistent with commit `8f5634f`), and P2 tried the spatial version on Thursday 22 October 2026. The developer did not directly observe either session. Devices, exact quotations and whether controls were explained beforehand were not supplied. 25 October is the date these reports were documented, distinct from the trial dates.
+I asked for English to load first, with Chinese available in both the guide and header. Switching language keeps the arrangement. I also confirmed that a classmate had tried the experience independently before I explained the controls. I have not specified that detail separately for each participant, and I have not recorded a classmate retest of the final changes. More trial details are in [USER-TRIAL.md](USER-TRIAL.md).
 
-作者澄清，早期对话版和后来的场景版意见分别来自两位同学，由作者转述，并补充 P1 在首个可玩版本提供当天（2026 年 10 月 20 日）尝试，P2 在 2026 年 10 月 22 日星期四尝试。因此在 USER-TRIAL.md 中分别记录，修正此前仅归为作者评审的来源判断。开发助手没有直接观察试用；设备、逐字原话及试用前是否解释玩法尚未提供。10 月 25 日是反馈整理日期，与试用日期分开记录。
+With Codex's assistance, the project was checked in headless Microsoft Edge for lamp dragging and slider input, all painting positions, object flipping, label changes, four endings, undo, invalid drops, keyboard alternatives, language switching and reset confirmation. The guide, two-object counter, wrapping and touch-enabled 390 px layout were also checked. Screenshots were captured and inspected; no JavaScript page errors were observed. These technical checks are separate from my classmates' feedback. The official course automatic checker was not run.
 
-P1 found the original experience too passive and similar to a branching visual novel. Decision: retain the move from selecting dialogue to manipulating the studio, documented in the 21 October implementation.
+A fresh public clone was served using the README commands on 25 October. The repository and live page returned HTTP 200 without login. The default-English revision was checked on 26 October. My Canvas screenshot shows the correct repository URL submitted on 22 October at 09:30; I still need to resubmit that URL before the deadline to refresh the submission snapshot.
 
-P2 liked the light interaction and the texture of the photograph/studies, but was disappointed that light stopped affecting the painting on the rack or in the packing area. They did not understand the label's purpose and found its appearance weak. They also found the old ending unclear: the main visible next action was returning to the same room. They wanted more distinct conclusions. These are paraphrases of the author's report, not direct participant quotations.
+我要求默认进入英文，中文保留为可选项，切换时不丢失布置。我也确认了同学先自行尝试、之后才听我讲解。这个细节没有分别对应到两位参与者，最新版也还没有记录同学复测。
 
-Implemented response: alignment now follows painting position in all three destinations, with a visible warm highlight. The label has a typeset face and explicit displayed/set-aside consequences. Opening the doors creates an epilogue with a morning scene based on the actual arrangement, four distinct closing outcomes, visitor/character text, and separate revise/restart actions. Preserve the photograph, studies and language switching in response to positive feedback. The inline SVG morning scene is code-authored with Codex; no new external assets or services were introduced.
+Codex 协助用 Edge 验证了灯光、拖放、翻面、展签、四种结局、撤回、重启、双语、引导和手机触控视口；截图已检查，未出现 JavaScript 页面错误。全新下载的代码按 README 可以启动，公开仓库与试玩页无需登录即可访问。没有运行课程自动检查脚本。技术验证与同学体验反馈分别记录，不把两者混为一谈。
 
-Developer verification: browser checks exercised illumination on the wall, rack and packing area, object inspection, undo, all four closing outcomes, wrapping visible in the packing ending, invalid-drop recovery, keyboard alternatives, reset confirmation and touch-enabled controls. Screenshots were captured. A peer retest of these new changes has not yet been reported. Before final submission, clarify whether the original trial began without an explanation of the controls, as the brief requests.
+## What I kept and changed with AI / 我怎样使用 AI
 
-### Follow-up correction — opening and packing / 后续修正：开门与包装
+Codex proposed the initial narrative scene and wrote substantial parts of the draft dialogue, code, SVG/CSS assets, documentation and verification scripts. I used it as a collaborator and reviewed the experience through concrete revisions. My contribution was to set the emphasis on empathy and artistic expression, challenge the passive dialogue format, request spatial interaction, keep the light design and refine the packaging, endings, guidance and language entry.
 
-The author supplied screenshots showing an apparently unresponsive “Open the doors” action and a painting standing upright over the packing area. The first problem was an unintended usability barrier: the click handler required two inspected objects and returned only a small status message. Remove that gate so every arrangement, including a fresh session, can reach its epilogue immediately. Exploration remains available without being a hidden prerequisite.
+I kept the lamp idea because an action could reveal a detail in the painting. I rejected continuing to build mainly through dialogue choices because that felt too passive. I removed the explicit “no score, no perfect reply” copy because it sounded unnatural. I changed the temporary solution of removing the opening condition into a clearer guided flow. These decisions gave me a way to direct the work beyond accepting the first generated version.
 
-For packing, replace the upright painting with a diagonal, flattened placement inside the box under translucent protective paper. Keep the painted detail visible through the paper so the revised lighting interaction remains useful. Moving the painting back to the wall/rack removes the packing treatment. The final take-home scene adds sealing tape over this same geometry. The artwork itself stays opaque; only the protective paper is translucent.
+Codex 提出了最初的叙事情境，并起草了大量对白、程序、SVG/CSS 素材、文档和验证脚本。我把它作为协作者，通过具体修改来决定作品的方向。我负责把重点放在同理心和艺术表达上，否定过于被动的对话形式，提出画面操作，并继续调整包装、结局、引导和语言入口。
 
-作者截图显示“开门”被查看数量条件拦住，且包装区画作仍直立。移除查看两件物品的门槛，任何布置都可以进入结局。包装区改为画作斜放、压低透视并覆半透明保护纸；画本身保持不透明。移回墙面或暂存架即可拆开，带回家的结局在同一包装上增加封口胶带。
+我保留灯光，是因为玩家的动作能够带出画里的细节；没有继续堆叠对话选项，因为那没有解决参与感不足的问题。我删掉生硬的评分说明，也把“直接取消开门条件”的临时处理改成更清楚的引导。这些是我在协作中作出的取舍。
 
-Verification: browser checks now open an ending from a fresh session, return to editing, exercise all endings, check packed geometry and non-intercepting paper, and drag the packed painting back out. A packing screenshot and revised ending screenshot were captured and inspected. Versioned CSS/JS URLs help existing visitors receive the changed behavior.
+## 27 October: revising my account / 修改创作自述
 
-### Onboarding revision / 初次进入引导
+I found that the documentation kept referring to me as “the author”, which made my own decisions read like someone else's report. I asked for first-person English and Chinese throughout these notes. Codex assisted with this edit. The revision preserves the dates, feedback and AI contribution; it changes the voice without changing the game.
 
-The author reconsidered the opening condition and requested restoring two inspected objects, explaining that the real problem was discoverability of “How to play”. Restore the condition with explicit progress (0/2, 1/2, ready) beside the action. Repeated inspection of one object counts only once. Opening early gives a concrete message naming the objects and how many remain.
-
-The bilingual guide now opens on page load, includes the four-step flow and the two-object condition, and supports switching language inside the dialog. It can be dismissed with its start button, close control or Escape and reopened from the header. Restarting the arrangement does not interrupt the player with another automatic guide. Packing and all-position lighting remain unchanged.
-
-作者重新确认保留查看两件物品的流程，指出主要问题是不会主动打开“怎么玩”。因此恢复条件，并显示 0/2、1/2 与可开门状态。重复查看同一物品不累计。首次进入主动弹出双语引导，明确流程和开门条件，关闭后仍可从右上角再次打开；重启布置不重复强制弹出。
-
-Browser verification covered automatic guide display, language switching inside it, dismissal, blocked opening at zero/one distinct object, repeated inspection not increasing the count, and successful endings after two. Existing drag, packing, lighting, undo, keyboard and mobile touch checks also passed. These changes follow author feedback, not a newly claimed classmate session.
-
-## 26 October 2026 — English entry and submission review / 英文入口与提交复核
-
-At the author's request, English is now the default for the page and introductory guide. Chinese remains selectable in both the guide and header, with arrangement state preserved. No new gameplay was added. Browser checks verified the English initial document, English guide, Chinese option, language switching, exploration condition, core interactions and four endings. The English guide and desktop screenshots were refreshed.
-
-A fresh public clone was served using the README commands on 25 October, and its interaction passed the browser checks. The public repository and live page both returned HTTP 200 without a signed-in browser session. The repository includes source, inline visual assets, screenshots, README, PROCESS, credits and development history. Two classmates' feedback and subsequent decisions are recorded as relayed by the author, with supplied dates. The only unconfirmed trial detail is whether use began before the author explained controls. Final Canvas URL submission is also outside the developer's verified evidence. Neither signatures nor a second round of participant testing is required by the supplied brief; a short recording and a live link are supplementary, and a live link is already provided.
-
-按作者要求，页面和首次引导默认英文，中文作为引导及页头中的可选项，切换保留布置。不增加玩法。英文入口、语言切换、查看条件、核心操作和四种结局均通过验证。源码、素材、截图、说明、过程、署名和开发历史齐全。尚待确认的试用事实是同学是否先自行尝试再听讲解；Canvas 最终提交网址也尚未由开发助手核实。不要求签名，也不强制修改后再试一次。
-
-### Trial-order confirmation / 试用顺序确认
-
-Later on 26 October, the author explicitly confirmed that a classmate had tried the experience independently before the author explained the controls. This resolves the open trial-order question recorded above. The confirmation does not identify a specific participant, so it is not expanded into separate claims about both sessions. README and USER-TRIAL were updated; no gameplay changed. The author recalls submitting on Canvas and will provide the submission details for URL verification; the exact submitted URL has not yet been independently checked.
-
-10 月 26 日稍后，作者明确确认同学在讲解操作之前先自行尝试，补齐了前述试用顺序问题。未指明对应参与者，不扩写为两次试用各自的观察细节。同步更新 README 与试用记录，不改玩法。作者记得已在 Canvas 提交，将补充提交详情供核对；实际提交网址仍待核实。
+我觉得文档一直用“作者”来指代我，让自己的决定读起来像旁观者的报告，因此要求改成第一人称。Codex 协助了这轮文字修改。日期、反馈和 AI 分工照实保留，游戏功能不变。

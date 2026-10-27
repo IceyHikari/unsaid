@@ -1,8 +1,8 @@
 # Process / 创作与修改记录
 
-I am interested in empathy and artistic expression in games. For this assignment, I wanted a small scene where the player could notice what matters to someone and help decide how it is presented. I used Codex throughout development for proposals, draft writing and implementation. I made the design decisions through trying the prototypes, discussing classmates' feedback and requesting specific revisions.
+I care about empathy and artistic expression in games. For this assignment, I wanted the player to spend time with a small scene, notice what matters to someone and help decide how to present it. I worked with Codex on proposals, draft writing and implementation. Trying the prototypes and discussing classmates' feedback helped me decide what to keep and what to ask it to change.
 
-我一直很在意游戏里的同理心与艺术表达。这次我想把它收在一个小场景里：玩家先发现某件事为什么重要，再参与决定怎样把它呈现出来。我在开发中使用了 Codex 协助提出方案、起草内容和实现程序，通过体验原型、讨论同学反馈和提出具体修改来确定方向。
+我一直很在意游戏里的同理心与艺术表达。这次我想从一个小场景开始，让玩家慢慢发现某件事为什么对一个人重要，再帮忙决定怎样把它展示出来。开发时，我用 Codex 帮忙提出方案、起草内容和实现程序。自己试过原型、听过同学的反馈后，我再决定留下什么、让它改什么。
 
 This is a retrospective account edited on 27 October 2026. Development dates follow the Git history. My classmates tried the versions on 20 and 22 October; I supplied their feedback for the written record on 25 October and confirmed independent use before explanation on 26 October. Their comments below are paraphrases, not direct quotations.
 
@@ -34,7 +34,7 @@ I asked for a room the player could interact with directly. The revised prototyp
 
 I kept the bilingual interface, local execution and undo. I wanted people to explore without worrying that one misplaced action would end the experience. Position buttons and a native slider offered alternatives to precise dragging. An invalid drop returned the painting safely to its previous location with a message.
 
-The first spatial version still had limits: the light detail worked only when the painting was on the wall, and the endings were mostly text in a dialog. These became specific points to revise after the next trial.
+In the first room prototype, the light detail worked only when the painting was on the wall. The endings were also mostly text in a dialog. The next trial made it clear that both needed more work.
 
 我要求把操作放进房间本身。玩家可以移动灯、拿起物件翻面、安排画的位置，还能决定是否公开展签上的自述。Codex 根据这个方向实现了网页和内联 SVG/CSS 场景。
 
@@ -52,7 +52,7 @@ I kept the materials they liked and asked for three changes on 25 October:
 
 第二位同学在 10 月 22 日星期四尝试了场景版。他喜欢灯光、照片和草稿的质感，也认可中英文切换。但画放到暂存架或包装区后，灯光就不起作用了，他觉得失望。展签的意义和外观不够清楚；“准备开门”之后又只能回到房间，收尾也不明确。
 
-我在 25 日整理这些反馈，并要求保留受到认可的部分，补齐三个位置的灯光响应、展签公开状态和真正可见的结局。新的清晨画面沿用玩家的布置，玩家能看到这次决定留下了什么，再选择重新布置或开始新的一晚。
+我在 25 日整理反馈时，决定留下同学喜欢的照片、草稿和双语，继续改灯光、展签和结局。画放到哪里都应该能被灯照亮；展签留下或收起，也要让玩家知道区别。开门后的清晨画面沿用玩家的布置，让这次选择有一个看得见的结果，再提供重新布置和从头体验的入口。
 
 ## 25 October: packing and guidance / 包装状态与操作引导
 
@@ -80,11 +80,11 @@ Codex 协助用 Edge 验证了灯光、拖放、翻面、展签、四种结局�
 
 ## What I kept and changed with AI / 我怎样使用 AI
 
-Codex proposed the initial narrative scene and wrote substantial parts of the draft dialogue, code, SVG/CSS assets, documentation and verification scripts. I used it as a collaborator and reviewed the experience through concrete revisions. My contribution was to set the emphasis on empathy and artistic expression, challenge the passive dialogue format, request spatial interaction, keep the light design and refine the packaging, endings, guidance and language entry.
+Codex proposed the initial story scene and wrote substantial parts of the dialogue draft, code, SVG/CSS assets, documentation and verification scripts. I worked with it by trying the result and asking for specific changes. I kept the focus on empathy and artistic expression, pushed the project beyond dialogue choices and asked for actions within the scene. I liked the light design and wanted to keep it, while the packing, endings, guidance and language entry needed further revisions.
 
 I kept the lamp idea because an action could reveal a detail in the painting. I rejected continuing to build mainly through dialogue choices because that felt too passive. I removed the explicit “no score, no perfect reply” copy because it sounded unnatural. I changed the temporary solution of removing the opening condition into a clearer guided flow. These decisions gave me a way to direct the work beyond accepting the first generated version.
 
-Codex 提出了最初的叙事情境，并起草了大量对白、程序、SVG/CSS 素材、文档和验证脚本。我把它作为协作者，通过具体修改来决定作品的方向。我负责把重点放在同理心和艺术表达上，否定过于被动的对话形式，提出画面操作，并继续调整包装、结局、引导和语言入口。
+Codex 提出了最初的故事情境，也起草了大量对白、程序、SVG/CSS 素材、文档和验证脚本。我和它协作的方式是先试，再提出具体修改。我希望作品能表达同理心，觉得只选台词太被动，就要求把操作放进场景。我喜欢灯光，想把它留下；包装、结局、引导和语言入口则继续一轮轮调整。
 
 我保留灯光，是因为玩家的动作能够带出画里的细节；没有继续堆叠对话选项，因为那没有解决参与感不足的问题。我删掉生硬的评分说明，也把“直接取消开门条件”的临时处理改成更清楚的引导。这些是我在协作中作出的取舍。
 

@@ -16,13 +16,13 @@ I agreed that the player needed more to do in the scene. I asked for direct mani
 
 ## P2: Thursday 22 October 2026 / 场景版
 
-P2 liked the light design, the photograph and study textures, and the Chinese/English options. Their concerns were more specific to how the room behaved:
+P2 liked the light design, the photograph and study textures, and the Chinese/English options. They also pointed out a few places where the room did not behave as they expected:
 
 - When the painting left the wall, the light stopped affecting it. They were disappointed that an interaction they enjoyed disappeared on the rack and in the packing area.
 - They did not understand the label's purpose and thought its appearance needed improvement.
 - “Open the doors” did not feel like a clear ending. Returning to the same room seemed to be the main next action, and they wanted different outcomes to feel more distinct.
 
-I kept the photograph, studies and language switching. On 25 October, I requested lighting at every painting destination, a clearer label with an explicit displayed/set-aside state, and illustrated morning scenes based on the final arrangement. Each ending now has its own closing text, with separate options to revise the exhibition or begin again.
+I kept the photograph, studies and language switching. On 25 October, I asked for the light to keep working wherever the painting was placed. I also wanted the label to show clearly what displaying or setting it aside would change, and the morning scene to show the arrangement the player had made. Each ending now has its own closing text, with separate options to revise the exhibition or begin again.
 
 P2 在 10 月 22 日星期四尝试了场景版。他喜欢灯光、照片和草稿的质感，也觉得双语做得不错。但画离开墙面后灯光就不起作用了，他觉得失望；展签的意义和外观不清楚；开门之后又回到房间，也让他不太明白结局是什么。
 

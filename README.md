@@ -12,15 +12,15 @@ English opens by default, including the introductory guide. Select 中文 in the
 
 ## Why I made this / 我想做什么
 
-I wanted to make a small experience about empathy and artistic expression. In my own game-design work, I care about what a work is trying to express and how someone encounters it. For this project, I focused on a quieter decision: how much of a personal memory someone wants to share through an exhibition.
+I wanted to make a small experience about empathy and artistic expression. When I work on a game, I care about what I want to express and how the player experiences it. Here, I focused on one question: how much of a personal memory would someone want to share in an exhibition?
 
 The story takes place the night before an exhibition. Alex asks you to help arrange a studio. A painting of their mother's room, an old photograph, a study sheet and a personal statement are still waiting to be placed. I wanted players to discover the room through its objects, then decide what visitors will see in the morning. The experience is for people who enjoy exploring illustrated spaces and finding a story in small details.
 
-我想做一个关于同理心和艺术表达的小作品。做游戏时，我很在意作品想表达什么，以及玩家怎样接触到这些表达。这次我把范围缩小到一个具体的选择：一个人愿意在展览里分享多少私人记忆。
+我想做一个关于同理心和艺术表达的小作品。做游戏时，我很在意自己想表达什么，玩家又会怎样感受到它。这次我把问题放进一场展览里：一个人愿意把多少私人记忆讲给别人听？
 
 故事发生在展览前夜。阿岚请玩家帮忙整理工作室，画、旧照片、草稿和私人自述都还没有安排好。我希望玩家先通过物件理解这个房间，再决定明天的观众会看到什么。它面向喜欢探索画面、留意小细节的玩家。
 
-I began with a branching conversation. After trying it and hearing a classmate's feedback, I felt that choosing lines left too little for the player to do. I changed the direction to arranging the room itself. The early prototype is preserved in Git history (commit `8f5634f`); my decisions and revisions are in [PROCESS.md](PROCESS.md).
+I began with a branching conversation. After trying it and hearing a classmate's feedback, I felt that the player spent too much time choosing lines and reading. I wanted them to do more in the room, so I changed the direction to arranging it themselves. The early prototype is preserved in Git history (commit `8f5634f`); my decisions and revisions are in [PROCESS.md](PROCESS.md).
 
 初版是分支对话。我自己体验后，加上同学的反馈，都觉得玩家主要是在选台词，能参与的事情太少。因此我改成了可以直接操作的工作室。早期版本仍保留在 Git 历史中，具体取舍写在过程记录里。
 
@@ -84,7 +84,7 @@ node browser-check.cjs
 
 Playwright is only a development tool. Checks cover the opening guide, language switching, two-object condition, lamp dragging and slider, all painting locations, packing, object flipping, four endings, undo, invalid drops, keyboard alternatives, reset confirmation and mobile touch controls. Desktop and mobile screenshots are included. The browser checks do not replace the classmate feedback.
 
-我用 Codex 辅助提出方案、起草对白、编写程序和场景素材，也让它协助整理文档与运行检查。我负责判断体验是否合适、提出具体修改并决定保留哪些设计。自动检查验证程序行为，同学的反馈则帮助我判断操作和反馈是否容易理解。
+我让 Codex 帮忙提出方案、起草对白、编写程序和场景素材，也用它整理文档、运行检查。体验哪里合适、哪里需要改、哪些设计值得保留，由我在试用和讨论中决定。程序检查让我知道功能能否运行，同学的反馈帮助我判断别人是否看得懂、用得明白。
 
 ## Submission / 提交
 

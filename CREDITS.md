@@ -1,8 +1,8 @@
 # Credits / 来源与协作
 
-I am Minyi Jin (IceyHikari), the creator of Unsaid for SD5913 Assignment 3. I directed the project through decisions about the interaction, language, visual presentation and revisions described in [PROCESS.md](PROCESS.md).
+I am Minyi Jin (IceyHikari). Unsaid is my individual project for SD5913 Assignment 3. I chose the direction and worked through revisions to the interaction, wording and visual presentation. I describe those decisions in [PROCESS.md](PROCESS.md).
 
-我是 Minyi Jin（IceyHikari），Unsaid 是我的 SD5913 Assignment 3 个人项目。我通过交互、语言、画面呈现和多轮修改来确定作品方向，具体记录见 PROCESS。
+我是 Minyi Jin（IceyHikari），Unsaid 是我的 SD5913 Assignment 3 个人项目。我确定创作方向，再通过试用和讨论不断调整操作、文字和画面。具体改了什么、为什么改，写在 PROCESS 里。
 
 ## AI assistance / AI 协作
 
